@@ -3,17 +3,17 @@
 <a id="indice"></a>
 ## Índice
 
-**Contenido actual:** Clases 1 a 4, con sus prácticas.
+**Contenido actual:** Clases 1 a 5, con sus prácticas. La Clase 5 incorpora redes, análisis de tráfico y una API de archivos con FastAPI.
 
-**Acceso rápido:** [Clase 1](#clase-1) · [Clase 2](#clase-2) · [Clase 3](#clase-3) · [Clase 4](#clase-4) · [Conexión entre las cuatro clases](#c4-16)
+**Acceso rápido:** [Clase 1](#clase-1) · [Clase 2](#clase-2) · [Clase 3](#clase-3) · [Clase 4](#clase-4) · [Clase 5](#clase-5) · [Integración de las cinco clases](#c5-17)
 
-**Recorrido para estudiar:** fundamentos → organización del equipo → cambios revisados con Git → entornos con Docker → comprobaciones y entregas automáticas → desarrollo asistido por IA → arquitectura y reglas de negocio extensibles.
+**Recorrido para estudiar:** fundamentos → organización del equipo → cambios revisados con Git → entornos con Docker → comprobaciones y entregas automáticas → desarrollo asistido por IA → arquitectura y reglas de negocio extensibles → comunicación por redes y APIs.
 
 Las figuras aparecen junto al tema que explican. **Imagen original** identifica un recorte del PDF; **esquema propio** identifica una versión simplificada en español. Debajo de cada figura se explica cómo leerla y se indica su fuente.
 
 > **Lectura rápida:** recorré los títulos, las figuras y las ideas clave. Después usá las tablas y los ejemplos de comandos para profundizar.
 
-Las imágenes están guardadas en `IngSft/Imagenes/` y se muestran al abrir la vista previa de este Markdown.
+Las imágenes están guardadas en `Imagenes/`, junto a este archivo, y se muestran al abrir la vista previa de este Markdown.
 
 ### Clase 1
 
@@ -98,6 +98,29 @@ Las imágenes están guardadas en `IngSft/Imagenes/` y se muestran al abrir la v
 - [16. Cómo se conectan las cuatro clases](#c4-16)
 - [17. Claridad del material y verificación](#c4-17)
 
+### Clase 5
+
+[Ir a la Clase 5: Redes, protocolos y APIs](#clase-5)
+
+- [1. Qué es una red y por qué importa en IA](#c5-01)
+- [2. Modelo OSI y pila TCP/IP](#c5-02)
+- [3. Encapsulación: seguir los datos entre capas](#c5-03)
+- [4. IP, puertos, sockets y direcciones locales](#c5-04)
+- [5. TCP y UDP: qué ofrece cada transporte](#c5-05)
+- [6. DNS y SMTP: nombres y correo](#c5-06)
+- [7. HTTP: solicitudes, respuestas y contratos](#c5-07)
+- [8. Recorrido completo de una consulta a una API](#c5-08)
+- [9. Rendimiento: latencia, capacidad, throughput y jitter](#c5-09)
+- [10. Confiabilidad y decisiones de diseño](#c5-10)
+- [11. Seguridad: amenazas, TLS, certificados y VPN](#c5-11)
+- [12. Práctica de captura: cómo leer un archivo PCAP](#c5-12)
+- [13. Comandos de diagnóstico y sus límites](#c5-13)
+- [14. Práctica FastAPI: requisitos y contrato propuesto](#c5-14)
+- [15. Guía local: implementar, ejecutar y comprobar](#c5-15)
+- [16. Docker, persistencia y despliegue opcional](#c5-16)
+- [17. Integración de las cinco clases y repaso](#c5-17)
+- [18. Precisiones del material, fuentes y pendientes](#c5-18)
+
 ---
 
 <a id="clase-1"></a>
@@ -112,7 +135,7 @@ Las imágenes están guardadas en `IngSft/Imagenes/` y se muestran al abrir la v
 
 **Material utilizado:**
 
-- [Clase 1: Fundamentos de Ingeniería de Software](<Clases/Clase 1 Fundamentos Ingeniería de Software .pdf>) (25 páginas).
+- [Clase 1: Fundamentos de Ingeniería de Software](<Clases/Clase 1 Fundamentos Ingeniería de Software .pdf>) (25 páginas).
 - [Práctica 1: Uso de Git](<Practicas/1. Practica de Uso de Git.pdf>) (4 páginas).
 
 Las referencias a páginas corresponden al orden de las páginas del PDF. Las explicaciones y los ejemplos propios se agregan para facilitar el estudio; no son transcripciones de las diapositivas.
@@ -607,9 +630,9 @@ Se revisaron el texto y las imágenes de los dos PDF.
 
 **Material utilizado y referencias abreviadas de esta clase:**
 
-- **[M]** [Metodologías de Desarrollo de Software](<Clases/Clase 2 Metodologías de Desarrollo de Software.pdf>) (31 páginas).
+- **[M]** [Metodologías de Desarrollo de Software](<Clases/Clase 2 Metodologías de Desarrollo de Software.pdf>) (31 páginas).
 - **[PR]** [Trabajo colaborativo: Git y PRs](<Clases/Clase 2 Practica Git PRs.pdf>) (27 páginas).
-- **[G]** [Práctica de Desarrollo Colaborativo en Git](<Practicas/2. Práctica Desarrollo Colaborativo Git - MIA203.pdf>) (2 páginas).
+- **[G]** [Práctica de Desarrollo Colaborativo en Git](<Practicas/2. Práctica Desarrollo Colaborativo Git - MIA203.pdf>) (2 páginas).
 - **[D]** [Práctica Docker](<Practicas/2. Práctica Docker.pdf>) (11 páginas).
 
 Por ejemplo, **[M, pp. 5-6]** remite a las páginas 5 y 6 del PDF de metodologías. Las páginas se cuentan desde el comienzo de cada PDF. Los ejemplos propios y las correcciones se identifican expresamente.
@@ -2156,7 +2179,7 @@ Se revisaron el texto y las páginas renderizadas de los tres PDF. Los conceptos
 <summary>Fuentes y referencias [ARQ] y [P4]</summary>
 
 - **[ARQ]** [Clase 4: Arquitectura de Software](<Clases/Clase 4 Arquitectura de Software.pdf>) (42 páginas).
-- **[P4]** [Práctica 4: Patrones de Diseño](<Practicas/4. Patrones de Diseño MIA203.pdf>) (3 páginas).
+- **[P4]** [Práctica 4: Patrones de Diseño](<Practicas/4. Patrones de Diseño MIA203.pdf>) (3 páginas).
 
 Las referencias cuentan las páginas desde el comienzo del PDF. Los esquemas propios, las interpretaciones de diagramas y los ejemplos se identifican. Las correcciones de métricas y las introducciones complementarias a C4 y DDD tienen enlaces junto a sus explicaciones.
 
@@ -2950,5 +2973,746 @@ Se revisaron el texto y las páginas renderizadas de ambos PDF. Se incorporaron 
 | [P4, p. 3] | La alternativa Chain necesita definir continuidad para acumular impuestos; no debe detenerse en el primer gravamen. |
 
 **Verificación del apunte:** el núcleo Python, los ejemplos numéricos y las pruebas ilustrativas se comprobaron en una carpeta temporal. Esto verifica los ejemplos bajo sus supuestos; no constituye una implementación entregada del programa completo de archivos JSON.
+
+[Volver al índice](#indice)
+
+---
+
+<a id="clase-5"></a>
+## Clase 5: Redes, protocolos y APIs
+
+**Qué vas a entender:** qué sucede cuando una aplicación se comunica con otra, cómo distinguir las responsabilidades de cada capa y cómo investigar una falla sin confundir red, transporte y aplicación.
+
+**Conexión con las prácticas:** observar paquetes permite reconocer las capas; los comandos ayudan a aislar problemas; la API de archivos permite construir un servicio que recibe solicitudes HTTP y conserva datos.
+
+<details>
+<summary>Fuentes y criterio de lectura de la Clase 5</summary>
+
+Se revisaron las 34 páginas de la clase y las 5 páginas de las dos prácticas, mediante extracción de texto y revisión de las páginas renderizadas. Los números de página corresponden al orden del PDF.
+
+| Referencia | Material |
+| --- | --- |
+| RED | [Clase 5: Introducción a las redes de computadoras](<Clases/Clase 5 - Introduccion a las redes de computadoras.pdf>), 34 páginas. |
+| CAP | [Algunas pruebas prácticas sobre redes](<Practicas/Algunas pruebas prácticas sobre redes.pdf>), 1 página. |
+| API | [Práctica de redes](<Practicas/Práctica de redes.pdf>), 4 páginas. |
+
+Las explicaciones desarrollan el material para estudiar. **Ejemplo propio** y **propuesta** identifican decisiones agregadas al apunte. Las precisiones técnicas enlazan documentación oficial y estándares; no se atribuyen al docente. Los comandos son instrucciones de estudio: no se ejecutaron capturas, consultas a servicios ni despliegues para redactar esta clase.
+
+</details>
+
+<a id="c5-01"></a>
+### 1. Qué es una red y por qué importa en IA
+
+Una red permite que equipos intercambien datos mediante enlaces y reglas compartidas, llamadas **protocolos**. Para que ese intercambio sea útil, importan el destino, el formato, el tiempo de entrega y el tratamiento de errores. La existencia de una red no garantiza que cada mensaje llegue: depende de sus componentes y de los protocolos utilizados [RED, pp. 4-5].
+
+En un sistema de IA, el modelo suele comunicarse con otras partes:
+
+| Situación de la clase | Para qué interviene la red | Qué importa especialmente |
+| --- | --- | --- |
+| Inferencia mediante una API | Enviar una entrada y recibir una predicción. | Tiempo de respuesta, disponibilidad y protección de los datos. |
+| Pipelines de datos | Mover datos entre fuentes, almacenamiento y procesamiento. | Capacidad de transferencia, integridad y recuperación de fallas. |
+| Entrenamiento distribuido | Intercambiar información entre nodos de un clúster. | Latencia y tasa de transferencia de las interconexiones. |
+| Aprendizaje federado | Comunicar clientes y un coordinador. | Seguridad y conectividad variable de los participantes. |
+| IoT y modelos en el borde | Intercambiar mediciones y resultados con otros sistemas. | Restricciones de conectividad, recursos y tiempos. |
+
+**Ejemplo propio:** una predicción puede calcularse correctamente y aun así no llegar al usuario porque el dominio no resuelve, el servidor no escucha en el puerto esperado o la respuesta tarda demasiado. Por eso operar el modelo requiere entender la comunicación que lo rodea.
+
+<a id="c5-02"></a>
+### 2. Modelo OSI y pila TCP/IP
+
+Las capas separan responsabilidades: cada una ofrece funciones a la superior y utiliza las de la inferior. Esto permite cambiar una tecnología sin rediseñar toda la comunicación [RED, pp. 7-14].
+
+![Correspondencia entre las siete capas OSI y las cuatro capas TCP/IP.](Imagenes/c5-osi-tcpip.png)
+
+*Imagen original: Clase 5, p. 13.*
+
+**Cómo leerlo:** las tres capas superiores de OSI se agrupan en aplicación dentro del modelo TCP/IP mostrado. En la parte inferior, enlace y física se agrupan como acceso a la red. La equivalencia es una guía conceptual.
+
+| Capa OSI | Responsabilidad para estudiar | Relación con TCP/IP |
+| --- | --- | --- |
+| 7. Aplicación | Protocolos que usan los programas para intercambiar información: HTTP, DNS, SMTP. | Aplicación. |
+| 6. Presentación | Representación y transformación de datos, por ejemplo formatos y codificación. | Aplicación. |
+| 5. Sesión | Organización del diálogo entre aplicaciones. | Aplicación. |
+| 4. Transporte | Comunicación entre extremos; puertos y propiedades de entrega según TCP o UDP. | Transporte. |
+| 3. Red | Direccionamiento IP y envío de paquetes entre redes. | Internet o red. |
+| 2. Enlace | Tramas y entrega sobre un enlace local, por ejemplo Ethernet o Wi-Fi. | Acceso a la red. |
+| 1. Física | Transmisión de señales por cable, fibra o radio. | Acceso a la red. |
+
+**OSI es un modelo de referencia; TCP/IP es también el nombre de una familia real de protocolos.** No hay que buscar siete programas separados en cada equipo. Algunas bibliografías presentan TCP/IP con cinco capas, separando enlace y física; aquí se sigue la versión de cuatro de la clase.
+
+En el diagrama de la p. 8, los extremos contienen la pila completa y el nodo intermedio representa funciones hasta red. Ilustra cómo un router puede reenviar paquetes sin ejecutar la aplicación de los extremos. Las líneas horizontales muestran una relación lógica entre protocolos pares; los datos viajan bajando por una pila, atravesando enlaces y subiendo por la otra.
+
+#### Ethernet, Wi-Fi y el medio físico
+
+Las pp. 9-10 muestran cableado Ethernet y señales Wi-Fi. Una aplicación HTTP puede funcionar sobre ambos: su contrato no depende directamente de si el enlace usa cable o radio. Ethernet no es sinónimo de Internet; Wi-Fi tampoco. Se puede tener conexión Wi-Fi con un router y carecer de salida a Internet.
+
+La p. 11 usa IP sobre palomas mensajeras como ejemplo humorístico para ilustrar que la abstracción de un protocolo puede separarse del medio que transporta los datos. No es una alternativa de despliegue para la práctica.
+
+<a id="c5-03"></a>
+### 3. Encapsulación: seguir los datos entre capas
+
+**Encapsular** es agregar información de control alrededor de los datos recibidos de una capa superior. El receptor interpreta y retira esa información al subir por su pila: **desencapsulación** [RED, pp. 15-16].
+
+![Encapsulación en el emisor y desencapsulación en el receptor.](Imagenes/c5-encapsulacion.png)
+
+*Imagen original: Clase 5, p. 16.*
+
+**Cómo leerlo:** seguí el descenso del lado emisor. El mensaje queda dentro de unidades con información de transporte, red y enlace. En el destino se recorre el sentido inverso. Las líneas horizontales expresan comunicación lógica entre capas.
+
+**Esquema textual propio para HTTP sobre TCP:**
+
+```text
+Aplicación:  solicitud HTTP
+Transporte:  [cabecera TCP | datos de aplicación]
+Internet:    [cabecera IP  | contenido TCP]
+Enlace:      [cabecera de enlace | paquete IP | control final según tecnología]
+Física:      señales que representan los bits sobre el medio
+```
+
+| Unidad | Qué permite observar en una captura |
+| --- | --- |
+| Mensaje HTTP | Método, ruta, estado y contenido, si está visible. |
+| Segmento TCP / datagrama UDP | Puertos de origen y destino; información del transporte. |
+| Paquete IP | Direcciones IP y protocolo transportado. |
+| Trama de enlace | Información para la entrega sobre ese enlace. |
+
+**Un mensaje de aplicación no equivale necesariamente a un paquete.** Una solicitud puede dividirse y TCP puede transportar datos de la aplicación en varios segmentos. También puede haber segmentos que solo confirman recepción. La herramienta de captura puede reconstruir conversaciones a partir de esas unidades.
+
+En HTTPS, el contenido HTTP está protegido por TLS: una captura sin las claves necesarias no muestra directamente el JSON o el texto de la solicitud. Las cabeceras IP y cierta información de transporte siguen siendo observables.
+
+<a id="c5-04"></a>
+### 4. IP, puertos, sockets y direcciones locales
+
+La clase presenta IP más puerto como dirección de un servicio [RED, p. 14]. Es un buen comienzo, con estas precisiones:
+
+| Concepto | Función | Ejemplo propio |
+| --- | --- | --- |
+| Dirección IP | Identificar una dirección de una interfaz para la comunicación IP. Un equipo puede tener varias. | `192.168.1.5`. |
+| Puerto | Distinguir extremos de transporte y permitir entregar tráfico a procesos. | TCP `8000` para la API local. |
+| Endpoint de transporte | Combinar dirección, protocolo de transporte y puerto. | `192.168.1.5:8000` sobre TCP. |
+| Socket | Abstracción que utiliza un programa para comunicarse. | El servidor abre un socket de escucha. |
+| Ruta HTTP | Identificar el recurso dentro del servicio. | `/files/test.txt`. |
+
+Para distinguir una conexión TCP se consideran protocolo, IP y puerto de origen, e IP y puerto de destino. **Varios clientes pueden conectarse al mismo puerto del servidor** porque sus extremos de origen permiten distinguir las conexiones. TCP y UDP tienen espacios de puertos separados.
+
+#### Tres direcciones que no hay que confundir
+
+- **`127.0.0.1` / `localhost`:** apuntan al propio entorno local. Desde tu PC, al propio equipo; desde un contenedor, al propio contenedor. `localhost` también puede resolver a loopback IPv6, `::1`.
+- **Una IP de la red local:** puede permitir llegar desde otro equipo si el servidor escucha en esa interfaz y las reglas de red lo permiten.
+- **`0.0.0.0` como dirección de escucha:** indica todas las interfaces IPv4 disponibles para ese proceso. Para entrar desde un navegador se usa `localhost` o una dirección real accesible del servidor.
+
+**Ejemplo de URL:** en `http://localhost:8000/files/test.txt`, `http` es el esquema, `localhost` el host, `8000` el puerto explícito y `/files/test.txt` la ruta. DNS resuelve el host; la aplicación interpreta la ruta. Resolver el nombre no verifica que el servidor esté funcionando.
+
+<a id="c5-05"></a>
+### 5. TCP y UDP: qué ofrece cada transporte
+
+La p. 17 compara dos protocolos de transporte. Su tabla sirve como introducción, pero requiere matices para estudiar correctamente.
+
+| Aspecto | TCP | UDP |
+| --- | --- | --- |
+| Modelo | Con conexión; establece estado entre extremos. | Datagramas sin establecimiento de conexión propio de UDP. |
+| Entrega | Flujo de bytes ordenado y confiable mientras la conexión puede sostenerse. | No garantiza llegada, orden ni ausencia de duplicados. |
+| Mensajes | No conserva los límites de los mensajes de aplicación. | Conserva límites de datagramas. |
+| Recuperación | Incluye confirmaciones y retransmisión. | No incluye confirmaciones ni retransmisión propias. |
+| Regulación | Control de flujo y mecanismos de control de congestión. | No ofrece esos mecanismos por sí mismo; pueden agregarse por encima. |
+| Errores | Usa checksum para detectar corrupción. | También tiene checksum; no equivale a recuperación de paquetes perdidos. |
+
+**Precisión sobre UDP:** la tabla original dice «No Error Checking». UDP sí define checksum; en IPv4 puede omitirse bajo las condiciones del protocolo. Detectar corrupción y asegurar entrega son problemas distintos. Fuente de la corrección: [RFC 768](https://www.rfc-editor.org/rfc/rfc768.html).
+
+**Precisión sobre TCP:** confiable no significa entrega exitosa ante cualquier falla. Una conexión puede interrumpirse; la aplicación debe manejar errores. Un ACK confirma recepción de bytes por TCP, no que la aplicación haya terminado una operación de negocio. Referencia: [RFC 9293](https://www.rfc-editor.org/rfc/rfc9293.html).
+
+#### Handshake de TCP
+
+El esquema de la clase muestra tres mensajes para establecer la conexión:
+
+```text
+Cliente                         Servidor
+   | -------- SYN ------------> |
+   | <------- SYN + ACK ------- |
+   | -------- ACK ------------> |
+   |       intercambio de datos |
+```
+
+Esto establece estado y sincroniza los números de secuencia. No autentica al usuario ni cifra el contenido. TLS tiene su propio establecimiento de seguridad sobre el transporte correspondiente.
+
+**Cómo elegir:** transferir un archivo exige reconstruir todos sus datos; una actualización de posición en tiempo real puede perder utilidad si llega tarde. El criterio depende de la aplicación. La afirmación «TCP lento, UDP rápido» oculta tamaño de mensajes, pérdidas, congestión y mecanismos que agregue la aplicación. UDP no asegura baja latencia por sí mismo.
+
+<a id="c5-06"></a>
+### 6. DNS y SMTP: nombres y correo
+
+#### DNS: resolver nombres
+
+DNS permite consultar información asociada a nombres de dominio [RED, p. 19]. Para acceder a un servicio, un caso común es obtener direcciones IPv4 o IPv6. Un dominio puede tener varias direcciones; una misma dirección puede alojar varios dominios.
+
+**Precisión:** la sigla significa **Domain Name System**. La diapositiva la expande como «Domain Name Service». El sistema utiliza registros y una estructura distribuida; no es una tabla única en un servidor central. Referencia: [RFC 1034](https://www.rfc-editor.org/rfc/rfc1034.html).
+
+**Secuencia conceptual propia:**
+
+1. El cliente necesita una dirección asociada al nombre.
+2. Puede utilizar información en caché o consultar un resolvedor.
+3. Si hace falta, el resolvedor obtiene información del sistema DNS.
+4. El cliente utiliza la dirección obtenida para intentar comunicarse con el servicio.
+
+La clase indica UDP/53. **DNS tradicional utiliza tanto UDP como TCP en el puerto 53**; no debe estudiarse como exclusivamente UDP. Referencia: [RFC 7766](https://www.rfc-editor.org/rfc/rfc7766.html). Existen además transportes cifrados, fuera del desarrollo de esta clase.
+
+#### SMTP: enviar correo
+
+SMTP significa **Simple Mail Transfer Protocol** y sirve para el envío y transferencia de correo [RED, p. 20]. La clase muestra un mensaje que pasa de un cliente a un servidor de correo y luego a otro servidor.
+
+El puerto TCP/25 corresponde al caso de transferencia SMTP presentado. No debe inferirse que leer el correo utiliza SMTP ni que toda configuración de envío de un cliente usa necesariamente ese puerto. Enviar correo y recuperar una bandeja son tareas diferentes.
+
+**Idea de integración:** HTTP, DNS y SMTP son protocolos de aplicación, pero resuelven necesidades distintas y pueden utilizar transportes diferentes.
+
+<a id="c5-07"></a>
+### 7. HTTP: solicitudes, respuestas y contratos
+
+HTTP organiza un intercambio entre un **cliente**, que solicita una acción sobre un recurso, y un **servidor**, que responde con un resultado [RED, pp. 21-23]. En la práctica, el recurso será una colección de archivos o un archivo particular.
+
+![Ejemplo HTTP con línea inicial, cabeceras, línea vacía y cuerpo.](Imagenes/c5-http.png)
+
+*Imagen original: Clase 5, p. 23.*
+
+**Cómo leerlo:** a la izquierda aparece la solicitud y a la derecha la respuesta. La primera línea describe la operación o el estado. Las cabeceras agregan metadatos; una línea vacía las separa del cuerpo. El ejemplo usa la representación textual de HTTP/1.1.
+
+| Parte | Solicitud | Respuesta |
+| --- | --- | --- |
+| Línea inicial | Método, destino de la solicitud y versión. | Versión, código de estado y texto asociado en HTTP/1.1. |
+| Cabeceras | Por ejemplo, `Host`, `Content-Type` y `Accept`. | Por ejemplo, `Content-Type` y metadatos de la respuesta. |
+| Cuerpo | Datos enviados, si la operación los necesita. | Representación del resultado o del error, cuando corresponde. |
+
+**`Content-Type` describe el contenido que se envía; `Accept` expresa qué tipos de respuesta acepta el cliente.** Un cuerpo JSON debe coincidir con el contrato de la API. Cambiar la cabecera sin cambiar la representación no transforma los datos.
+
+#### Métodos y estados
+
+| Método | Intención habitual | Aplicación en la práctica |
+| --- | --- | --- |
+| `GET` | Obtener una representación. | Listar archivos o leer uno. |
+| `POST` | Solicitar procesamiento; puede crear un recurso. | Crear un archivo con nombre y contenido. |
+| `PUT` | Crear o reemplazar la representación del recurso indicado. | No se exige en esta práctica. |
+| `DELETE` | Solicitar la eliminación de la asociación con el recurso. | No se exige en esta práctica. |
+
+| Familia de estados | Significado general | Ejemplos útiles |
+| --- | --- | --- |
+| `2xx` | Solicitud atendida con éxito. | `200 OK`, `201 Created`. |
+| `3xx` | Redirección u otras acciones relacionadas con una representación. | `307 Temporary Redirect`. |
+| `4xx` | La solicitud no puede atenderse por una condición atribuida al cliente. | `404 Not Found`, `409 Conflict`, `422 Unprocessable Content`. |
+| `5xx` | Fallo del servidor al atender una solicitud. | `500 Internal Server Error`, `503 Service Unavailable`. |
+
+`GET` es seguro e idempotente en su semántica: no debe solicitar cambios de estado y repetirlo conserva el efecto esperado. `PUT` y `DELETE` son idempotentes; `POST` no tiene esa garantía general. **Idempotente no significa respuesta idéntica:** una segunda eliminación puede devolver un estado distinto. Referencia para métodos y estados: [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html).
+
+#### HTTP, HTTPS y versiones
+
+La clase utiliza TCP/80 para HTTP y TCP/443 para HTTPS. Son puertos convencionales, no una obligación para toda aplicación: nuestra API usa `8000` localmente. **HTTPS protege HTTP mediante TLS.** La representación textual ilustrada corresponde a HTTP/1.1; otras versiones cambian el transporte o la codificación. Como ampliación, HTTP/3 utiliza QUIC sobre UDP, por lo que «HTTP siempre usa TCP» sería incorrecto. Referencia: [RFC 9114](https://www.rfc-editor.org/rfc/rfc9114.html).
+
+<a id="c5-08"></a>
+### 8. Recorrido completo de una consulta a una API
+
+**Ejemplo propio:** un cliente pide `https://api.ejemplo.edu/files/test.txt`. El dominio es ilustrativo. Para simplificar, suponemos una conexión nueva con HTTP sobre TCP y TLS; la reutilización de conexiones y las cachés pueden evitar pasos.
+
+1. **Identificar el destino:** el cliente separa esquema, nombre del host, puerto y ruta.
+2. **Resolver el nombre:** obtiene una dirección mediante DNS, salvo que ya disponga de la información.
+3. **Establecer transporte:** abre una conexión TCP al extremo de destino; HTTPS suele usar el puerto 443 si no se indica otro.
+4. **Establecer TLS:** negocia la protección de la comunicación y valida la identidad del servidor según sus certificados y la política del cliente.
+5. **Enviar HTTP:** solicita `GET /files/test.txt` con las cabeceras correspondientes.
+6. **Ejecutar la aplicación:** el servidor deriva la solicitud al endpoint; la API valida el nombre y consulta el almacenamiento.
+7. **Responder:** devuelve el estado, las cabeceras y el contenido, o un error definido.
+8. **Interpretar el resultado:** el cliente distingue una respuesta HTTP de una falla de transporte o un timeout.
+
+En un servicio desplegado puede haber un proxy que recibe HTTPS y reenvía la solicitud al proceso de la API. El puerto público del servicio no tiene por qué coincidir con el puerto interno de Uvicorn.
+
+| Observación | Qué permite concluir | Qué falta investigar |
+| --- | --- | --- |
+| DNS devuelve una dirección. | La consulta obtuvo una respuesta de nombres. | Si el servicio es accesible y funciona. |
+| No se puede conectar al puerto. | No se logró establecer ese transporte. | Proceso detenido, dirección incorrecta, firewall o ruta. |
+| Falla la validación del certificado. | El cliente no pudo validar esa identidad/protección. | Nombre, vigencia, cadena de confianza o configuración. |
+| Se recibe HTTP `404`. | Un servidor HTTP respondió que no encontró el recurso. | Ruta, nombre del archivo y estado del almacenamiento. |
+| Se recibe HTTP `500`. | El servidor informa un error interno. | Logs y causa dentro de la aplicación. |
+
+**Idea clave:** un `404` no es ausencia de conectividad. Es una respuesta de la capa de aplicación que hay que interpretar.
+
+<a id="c5-09"></a>
+### 9. Rendimiento: latencia, capacidad, throughput y jitter
+
+Las pp. 25-28 distinguen rendimiento y confiabilidad. Para medir rendimiento hay que decir **qué se mide, entre qué puntos, durante cuánto tiempo y en qué unidad**.
+
+| Métrica | Qué expresa | Ejemplo propio |
+| --- | --- | --- |
+| Latencia de ida | Tiempo de un punto al otro en un sentido. | Un paquete tarda 20 ms en llegar. |
+| RTT, ida y vuelta | Tiempo de ir hasta un extremo y obtener el retorno correspondiente. | `ping` informa un RTT de 45 ms. |
+| Capacidad / ancho de banda nominal | Límite de transferencia indicado para el enlace o camino bajo una definición concreta. | Enlace nominal de 100 Mb/s. |
+| Throughput | Tasa de transferencia efectivamente conseguida en una medición. | Se transfieren 60 Mb/s en ese intervalo. |
+| Goodput | Tasa de datos útiles para la aplicación, descontando sobrecarga y repeticiones. | Bytes del archivo recibidos por segundo. |
+| Pérdida de paquetes | Proporción de paquetes que no llegan en las condiciones de la medición. | 2 perdidos sobre 100 enviados: 2 %. |
+| Jitter | Variación del retardo entre paquetes, según la definición de la medición. | Llegadas irregulares que afectan una llamada. |
+
+**Precisión sobre la p. 26:** «Bandwidth (Throughput)» junta dos conceptos que conviene separar: capacidad y tasa lograda. La capacidad disponible depende del camino y del tráfico que lo comparte; una tasa medida necesita contexto. Referencia para capacidad y capacidad disponible: [RFC 5136](https://www.rfc-editor.org/rfc/rfc5136.html).
+
+El dibujo de esa página suma 350 ms de ida y 150 ms de vuelta: 500 ms en total para ese recorrido ilustrado. No es latencia de un solo sentido. Además, el tiempo de una API puede incluir procesamiento, colas, DNS y establecimiento de conexiones, según dónde comience la medición.
+
+#### Ejemplo numérico
+
+Transferir **100 MB** por un enlace de **100 Mb/s** tomaría, como mínimo ideal:
+
+```text
+100 MB × 8 = 800 Mb
+800 Mb / 100 Mb/s = 8 s
+```
+
+Se usan unidades decimales: MB son megabytes y Mb son megabits. El cálculo supone aprovechar toda esa tasa y no incluye cabeceras, pérdidas, competencia por el enlace ni otros tiempos. Si la transferencia efectiva fuera 50 Mb/s, serían 16 s bajo el mismo cálculo.
+
+**Latencia y throughput responden preguntas diferentes:** una API con mensajes pequeños puede tardar por viajes de ida y vuelta aunque el enlace tenga gran capacidad. Para descargar un conjunto de datos grande suele pesar más la tasa sostenida. Para audio o video interactivo también importan el jitter y la pérdida.
+
+<a id="c5-10"></a>
+### 10. Confiabilidad y decisiones de diseño
+
+La confiabilidad incluye poder entregar información correctamente y tratar fallas [RED, pp. 25 y 28]. Hay que distinguir el comportamiento de un transporte de la confiabilidad del servicio completo.
+
+**Ejemplo propio:** el servidor crea un archivo, pero la respuesta se pierde. El cliente recibe un timeout. No puede concluir que el archivo no se creó: desconoce el resultado de la operación. Repetir el `POST` sin una política podría duplicar una acción o encontrar un archivo existente.
+
+| Decisión de la aplicación | Para qué sirve | Cuidado necesario |
+| --- | --- | --- |
+| Timeout | Evitar esperar indefinidamente. | Un vencimiento no prueba que la operación no se ejecutó. |
+| Reintentos limitados | Recuperarse de fallas transitorias. | Evitar repetir efectos y sobrecargar un servicio caído. |
+| Idempotencia / identificador de operación | Reconocer solicitudes repetidas. | Definir almacenamiento y vigencia de la identificación. |
+| Logs y métricas | Reconstruir qué pasó y dónde se consumió tiempo. | Asociar solicitudes y proteger los datos registrados. |
+| Persistencia | Conservar datos fuera del ciclo de vida del proceso. | Reiniciar y recrear son pruebas distintas. |
+
+Estas son ampliaciones propias para conectar redes con ingeniería de software. TCP ayuda con la entrega del flujo; **no resuelve por sí solo la confirmación de una operación de negocio**.
+
+Para la práctica alcanza con hacer explícito qué sucede cuando el archivo ya existe y cómo se informa un error. Un sistema con concurrencia también necesita controlar creaciones simultáneas; comprobar existencia y escribir en dos pasos puede producir una carrera.
+
+<a id="c5-11"></a>
+### 11. Seguridad: amenazas, TLS, certificados y VPN
+
+La clase señala que la red no debe suponerse segura y presenta tres propiedades [RED, pp. 30-33]:
+
+| Propiedad | Qué protege | Aplicación al servicio de archivos |
+| --- | --- | --- |
+| Confidencialidad | Evitar divulgación a personas no autorizadas. | Restringir quién puede leer archivos y proteger el tránsito. |
+| Integridad | Detectar o impedir modificaciones no autorizadas. | Proteger el contenido y las solicitudes de escritura. |
+| Disponibilidad | Poder acceder al servicio cuando se necesita. | Manejar saturación, fallas y uso de recursos. |
+
+#### Amenazas de la clase
+
+| Amenaza | Qué ocurre | Relación con los controles |
+| --- | --- | --- |
+| Acceso no autorizado | Alguien usa recursos sin el permiso correspondiente. | Autenticación, autorización y validación de solicitudes. |
+| DoS | Se agotan recursos y se degrada o interrumpe el servicio. | Límites de solicitudes, tamaños y consumo de recursos. |
+| Intermediario malicioso, MITM | Se intercepta o intenta alterar la comunicación. | Canal protegido y validación correcta de la identidad. |
+| Captura de paquetes, sniffing | Se observa tráfico disponible en un punto de captura. | Cifrar contenido sensible; no asumir que la red es privada. |
+| IP spoofing | Se falsifica una dirección de origen. | No tratar una IP como prueba suficiente de identidad. |
+
+Una captura puede ser una herramienta legítima de diagnóstico. Su existencia como técnica no implica por sí misma un ataque.
+
+#### TLS y certificados
+
+TLS protege la comunicación frente a escucha, alteración y falsificación de mensajes. En el uso web habitual autentica al servidor; la autenticación del cliente mediante certificado es opcional. Una contraseña o un token de usuario resuelven otra parte del control de acceso. Referencia: [RFC 8446](https://www.rfc-editor.org/rfc/rfc8446.html).
+
+![Cadena de confianza con certificado raíz, intermediarios y certificados finales.](Imagenes/c5-certificados.png)
+
+*Imagen original: Clase 5, p. 33. La explicación siguiente precisa el alcance de la identidad certificada.*
+
+**Cómo leerlo:** el esquema representa una cadena de confianza. El cliente valida el certificado presentado para el nombre al que se conecta y una cadena hasta una autoridad que confía, además de los controles correspondientes. El certificado vincula una clave pública con una identidad, normalmente nombres de dominio.
+
+**Un certificado de dominio no demuestra por sí solo la identidad legal de una organización ni que su sitio sea honesto.** La validación depende del tipo de certificado. Tampoco significa que toda la aplicación esté protegida contra errores o accesos indebidos.
+
+La clase utiliza «SSL/TLS» como expresión general. Para estudiar implementaciones modernas, usar **TLS**: SSL es una familia obsoleta; SSLv3 está expresamente deprecado. Referencia: [RFC 7568](https://www.rfc-editor.org/rfc/rfc7568.html).
+
+#### SSH, IPsec y VPN
+
+- **SSH:** permite acceso remoto protegido y otros usos, como túneles.
+- **IPsec:** conjunto de mecanismos de seguridad en la capa IP. Las propiedades dependen del protocolo y la configuración: no todo uso implica cifrado del contenido.
+- **VPN:** crea una conexión lógica sobre otra red; las VPN de acceso seguro tratadas en clase usan túneles protegidos. El alcance de esa protección depende de sus extremos y configuración.
+
+**Ejemplo propio:** una VPN hasta una red privada protege ese tramo; HTTPS protege la sesión correspondiente con el servidor. Ninguna de las dos concede automáticamente permiso para leer cualquier archivo. Cifrado, autenticación y autorización son controles relacionados, con funciones diferentes.
+
+<a id="c5-12"></a>
+### 12. Práctica de captura: cómo leer un archivo PCAP
+
+La práctica CAP propone abrir [Wireview](https://wireview.github.io/) y cargar un `.pcap` provisto en el Campus. Ese archivo **no está entre los tres PDFs recibidos**. Esta sección prepara la lectura; no presenta hallazgos de una captura que todavía no tenemos.
+
+Un PCAP conserva registros de paquetes capturados en un lugar y momento concretos. Muestra lo que pudo observar ese punto de captura, no todo el tráfico de Internet ni necesariamente toda la actividad de un equipo.
+
+#### Qué buscar en los tres paneles indicados por la consigna
+
+| Panel conceptual | Qué observar | Qué pregunta responde |
+| --- | --- | --- |
+| Lista de paquetes | Tiempo, origen, destino, protocolo, longitud e información resumida. | ¿Qué intercambios aparecen y en qué orden? |
+| Detalle de protocolos / cabeceras | Campos de enlace, IP, transporte y aplicación disponibles. | ¿Cómo está encapsulado el paquete seleccionado? |
+| Bytes | Representación del contenido capturado. | ¿Qué bytes corresponden a los campos interpretados? |
+
+Los rótulos exactos dependen de la interfaz. La guía sigue la información solicitada por CAP, p. 1.
+
+#### Recorrido de análisis propuesto
+
+1. Registrar qué archivo se abrió y el período visible de la captura.
+2. Elegir un paquete y anotar IP de origen/destino y protocolo.
+3. Si es TCP o UDP, identificar ambos puertos. Un puerto conocido orienta, pero no prueba por sí solo qué aplicación corre.
+4. Relacionar las cabeceras con [encapsulación](#c5-03).
+5. Buscar una consulta DNS y su respuesta, si aparecen; comparar nombre consultado, tipo y datos devueltos.
+6. Buscar una conversación TCP: establecimiento, datos y confirmaciones. No asumir que la captura contiene su comienzo.
+7. Si hay HTTP legible, reconocer método, ruta, estado, cabeceras y cuerpo. Si hay TLS, distinguir lo visible de lo cifrado.
+8. Relacionar los tiempos de paquetes pertinentes. Una diferencia temporal no equivale automáticamente al tiempo de procesamiento del servidor.
+9. Anotar evidencia y límites: paquetes faltantes, contenido cifrado o ausencia del intercambio buscado.
+
+**Plantilla propia para resolver la actividad:**
+
+| Hallazgo | Paquetes / tiempos | Evidencia observada | Interpretación y límite |
+| --- | --- | --- | --- |
+| Resolución de un nombre | Completar. | Consulta y respuesta, si existen. | Qué nombre se resolvió; no prueba disponibilidad de HTTP. |
+| Conversación de transporte | Completar. | IPs, puertos y flags. | Qué extremos se comunican; revisar si falta el inicio. |
+| Solicitud de aplicación | Completar. | Método y ruta si son visibles. | Qué se pidió; no inferir contenido cifrado. |
+| Resultado | Completar. | Respuesta, estado o error visible. | Qué se puede concluir con esa evidencia. |
+
+No completar esta tabla con números o resultados supuestos. Una retransmisión observada puede deberse a pérdida o a otros problemas; hace falta interpretar la conversación y las condiciones de captura.
+
+<a id="c5-13"></a>
+### 13. Comandos de diagnóstico y sus límites
+
+CAP propone observar interfaces, conectividad, saltos y resolución de nombres. Los destinos se escriben como **IP o nombre de host**, según el comando; no como una URL completa con `https://` y ruta.
+
+| Objetivo | Windows | Linux / macOS | Cómo interpretar |
+| --- | --- | --- | --- |
+| Ver interfaces | `ipconfig` | `ifconfig` | Identificar direcciones e interfaces. La información disponible cambia según herramienta y opciones. |
+| Observar respuesta ICMP | `ping 8.8.8.8` | `ping -c 4 8.8.8.8` | Revisar paquetes enviados/recibidos y RTT. En Windows suele enviar cuatro por defecto. |
+| Explorar saltos | `tracert google.com` | `traceroute google.com` | Observar respuestas de nodos intermedios y tiempos de las sondas. |
+| Consultar DNS | `nslookup google.com` | `nslookup google.com` | Ver qué respondió el servidor DNS consultado. |
+
+En Linux, `ip addr` es otra opción habitual para consultar interfaces; `ifconfig` puede no estar instalado. Las utilidades disponibles dependen del sistema. Los comandos anteriores describen la actividad, sin resultados ejecutados en este apunte.
+
+#### Qué demuestra cada resultado
+
+- **`ping` responde:** hubo intercambio ICMP con ese destino en esa medición. No verifica que un endpoint HTTP responda ni que un usuario esté autorizado.
+- **`ping` no responde:** puede haber bloqueo de ICMP, límites o un problema de conectividad. No demuestra por sí solo que el servicio web esté caído.
+- **`tracert` muestra `*`:** no se recibió respuesta a una sonda dentro del tiempo previsto. No implica necesariamente que ese salto deje caer el tráfico de la aplicación.
+- **Aparecen varios saltos:** son una observación del camino de esas sondas. La ruta puede cambiar y el camino de regreso puede ser diferente.
+- **`nslookup` resuelve:** DNS respondió. Aún falta probar el transporte y la aplicación.
+
+#### Orden útil para investigar una API local
+
+1. Confirmar que el servidor inició y leer el puerto en sus logs.
+2. Revisar la dirección y la ruta solicitada: `http://127.0.0.1:8000/files`.
+3. Si está en Docker, revisar dirección de escucha y publicación de puertos.
+4. Si hay un dominio, separar resolución DNS de conexión al servicio.
+5. Si llega una respuesta HTTP, leer estado y cuerpo antes de investigar la red.
+6. Consultar logs para relacionar la solicitud con el error de la aplicación.
+
+<a id="c5-14"></a>
+### 14. Práctica FastAPI: requisitos y contrato propuesto
+
+La práctica API pide construir un servicio para **listar, crear y leer archivos**. Se puede empezar localmente y luego ejecutarlo en Docker. El despliegue online se presenta como opcional [API, p. 1].
+
+| Endpoint requerido | Requisito explícito del PDF |
+| --- | --- |
+| `GET /files` | Devolver una lista de archivos del directorio `./files`. |
+| `POST /files` | Crear un archivo con nombre y contenido proporcionados en la solicitud. |
+| `GET /files/{file_name}` | Devolver el contenido del archivo indicado en la ruta. |
+
+**FastAPI define la aplicación y sus rutas; Uvicorn es el servidor ASGI que la ejecuta y atiende conexiones HTTP.** ASGI es la interfaz entre aplicaciones Python y servidores compatibles. `main:app` identifica el objeto `app` dentro del módulo `main.py`.
+
+#### JSON y carga de archivos son contratos diferentes
+
+El PDF enlaza la guía de carga de archivos, pero su ejemplo de `curl` envía JSON con `name` y `content`. Son dos alternativas:
+
+- **JSON:** enviar un objeto como `{"name": "test.txt", "content": "Hola"}`; puede declararse mediante un modelo Pydantic. Véase [Request Body de FastAPI](https://fastapi.tiangolo.com/tutorial/body/).
+- **Carga de archivo:** enviar un formulario `multipart/form-data`, por ejemplo usando `UploadFile`. El cliente y la firma del endpoint deben corresponder a ese formato. Véase [Request Files de FastAPI](https://fastapi.tiangolo.com/tutorial/request-files/).
+
+**Propuesta del apunte:** elegir JSON y limitar el ejercicio a archivos de texto UTF-8. Facilita seguir el ejemplo del PDF. Es una decisión propia: la consigna no fija por completo el contrato ni todos los formatos admitidos.
+
+| Situación | Contrato propuesto para estudiar |
+| --- | --- |
+| Listado correcto | `200`, con lista ordenada de nombres de archivos regulares. |
+| Creación correcta | `201`, con el nombre creado. |
+| Lectura correcta | `200`, con objeto JSON que contiene `name` y `content`. |
+| Archivo inexistente | `404`, con detalle del error. |
+| Nombre ya existente al crear | `409`; no sobrescribir silenciosamente. |
+| Nombre no permitido | `400`, según validación explícita de la aplicación. |
+| Cuerpo que no coincide con el modelo | Error de validación de FastAPI, normalmente `422`. |
+
+#### Decisiones pendientes antes de implementar
+
+- Permitir nombres simples y mantener las operaciones dentro de `files/`; rechazar separadores, rutas absolutas, `.` y `..`.
+- Definir qué hacer con enlaces simbólicos, archivos binarios y errores de permisos.
+- Crear o exigir el directorio de almacenamiento de forma explícita.
+- Fijar límites de nombre y contenido, y cómo responder si se exceden.
+- Definir si habrá acceso simultáneo y cómo evitar carreras al crear.
+- Acordar autenticación y autorización si se expone fuera del entorno de práctica.
+
+**Por qué importa validar la ruta:** unir `files/` con un nombre recibido sin controles puede permitir salir de esa carpeta, por ejemplo mediante `../`. Es un problema de la aplicación que HTTPS no corrige.
+
+<a id="c5-15"></a>
+### 15. Guía local: implementar, ejecutar y comprobar
+
+Esta sección desarrolla un recorrido de trabajo. **No se creó todavía una implementación de la API en el repositorio.** Los nombres y ejemplos permiten preparar esa resolución sin confundirla con el resumen.
+
+#### Paso 1: preparar un proyecto y su entorno
+
+Estructura propuesta:
+
+```text
+api_archivos/
+├── main.py              # Rutas HTTP y aplicación FastAPI
+├── requirements.txt     # Dependencias
+├── files/               # Datos de la práctica
+└── Dockerfile           # Se incorpora después de la versión local
+```
+
+Desde la carpeta del proyecto, en PowerShell con Python instalado:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install "fastapi[standard]" uvicorn
+```
+
+Usar el Python del entorno permite instalar y ejecutar sin depender de su activación. `requirements.txt` puede comenzar declarando `fastapi[standard]` y `uvicorn`; para reproducir una entrega hay que registrar versiones compatibles que se hayan comprobado.
+
+#### Paso 2: entender una ruta mínima
+
+El PDF muestra un endpoint de prueba [API, p. 2]. Esta versión equivalente permite entender la relación entre ruta y función:
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+def root():
+    return {"message": "API de archivos"}
+```
+
+`@app.get("/")` registra una operación HTTP. FastAPI convierte el diccionario de retorno en una respuesta JSON. Esto solo comprueba la ruta raíz: faltan las tres operaciones de archivos, su validación y el manejo de errores.
+
+Para el contrato JSON propuesto, el cuerpo puede representarse con:
+
+```python
+from pydantic import BaseModel
+
+
+class FileCreate(BaseModel):
+    name: str
+    content: str
+```
+
+El modelo describe la estructura; **no implementa por sí solo la validación de rutas ni el almacenamiento**. Una función `def create_file(payload: FileCreate): ...` registrada con `@app.post("/files", status_code=201)` recibiría ese cuerpo. Hay que desarrollar el comportamiento acordado y las respuestas de error.
+
+#### Paso 3: ejecutar y abrir la documentación
+
+Una opción coherente con la consigna es:
+
+```powershell
+.\.venv\Scripts\fastapi.exe dev main.py
+```
+
+Otra opción, usando Uvicorn directamente:
+
+```powershell
+.\.venv\Scripts\python.exe -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Son alternativas: no se ejecutan ambos servidores sobre el mismo puerto. La recarga automática es una comodidad de desarrollo.
+
+- Documentación interactiva: `http://127.0.0.1:8000/docs`.
+- Documentación alternativa: `http://127.0.0.1:8000/redoc`.
+- Esquema OpenAPI: `http://127.0.0.1:8000/openapi.json`.
+
+**Corrección del PDF:** la ruta predeterminada es `/redoc`, en singular, no `/redocs`. La documentación permite inspeccionar y probar el contrato declarado por la aplicación. Referencia: [primeros pasos de FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/).
+
+#### Paso 4: implementar las operaciones de forma incremental
+
+1. Crear el directorio de trabajo y definir una ubicación estable de almacenamiento.
+2. Implementar el listado, restringido a archivos de la carpeta.
+3. Agregar creación: validar nombre, decidir conflictos, escribir como UTF-8 y devolver el resultado.
+4. Agregar lectura: validar nombre, distinguir inexistencia y leer el texto.
+5. Convertir errores esperados en estados HTTP claros; reservar errores internos para fallas inesperadas.
+6. Separar las operaciones de almacenamiento de las rutas si la complejidad lo justifica.
+
+**Relación con arquitectura:** las rutas adaptan HTTP; las funciones de almacenamiento gestionan archivos. Esa separación facilita comprobar reglas sin abrir un puerto y cambiar el almacenamiento más adelante.
+
+#### Paso 5: comprobar el circuito completo
+
+En PowerShell, estas solicitudes corresponden al contrato JSON propuesto, una vez implementados los endpoints:
+
+```powershell
+$apiBase = 'http://127.0.0.1:8000'
+
+# Consultar el listado inicial
+Invoke-RestMethod -Method Get -Uri "$apiBase/files"
+
+# Crear un archivo de texto
+$fileBody = @{ name = 'test.txt'; content = 'Este es un archivo de prueba' } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "$apiBase/files" -ContentType 'application/json; charset=utf-8' -Body $fileBody
+
+# Leerlo y comprobar que aparece en el listado
+Invoke-RestMethod -Method Get -Uri "$apiBase/files/test.txt"
+Invoke-RestMethod -Method Get -Uri "$apiBase/files"
+```
+
+Para consultar estado y cabeceras de una lectura con el ejecutable de curl:
+
+```powershell
+curl.exe -i http://127.0.0.1:8000/files/test.txt
+```
+
+Usar `curl.exe` evita la ambigüedad del alias `curl` en algunas versiones de Windows PowerShell. Para crear también se puede utilizar `/docs`; si el endpoint usa formulario en lugar de JSON, los clientes anteriores deben adaptarse.
+
+| Comprobación propuesta | Resultado que debería observarse |
+| --- | --- |
+| Listar una carpeta vacía | Lista vacía con éxito, no fallo por inexistencia del directorio si se decidió crearlo. |
+| Crear y leer `test.txt` | Contenido igual al enviado y nombre presente en el listado. |
+| Crear de nuevo el mismo nombre | Conflicto según el contrato; contenido original conservado. |
+| Leer un nombre inexistente | `404`. |
+| Crear con un nombre como `../fuera.txt` | Rechazo; ninguna escritura fuera del directorio. |
+| Enviar un cuerpo que incumple el modelo | Error de validación. |
+| Reiniciar el proceso local | El archivo sigue disponible si el directorio se conserva. |
+
+Esta tabla es un plan de verificación, no un reporte de pruebas ejecutadas. Antes de entregar una implementación habría que registrar los resultados reales, incluyendo casos de concurrencia o límites si forman parte del alcance acordado.
+
+<a id="c5-16"></a>
+### 16. Docker, persistencia y despliegue opcional
+
+API, p. 1, propone este orden: aplicación local → contenedor → volumen → disponibilidad online si se desea. Primero se resuelve el funcionamiento y después se agregan fronteras de ejecución.
+
+#### Docker: tres configuraciones diferentes
+
+| Configuración | Qué controla | Ejemplo |
+| --- | --- | --- |
+| Escucha del servidor | En qué interfaces y puerto atiende dentro del contenedor. | Uvicorn en `0.0.0.0:8000`. |
+| Publicación del puerto | Cómo llegar desde el host al puerto del contenedor. | Host `127.0.0.1:8000` → contenedor `8000`. |
+| Montaje de almacenamiento | Qué ubicación conserva los archivos por fuera del contenedor. | Volumen en `/app/files`. |
+
+**Dockerfile ilustrativo**, suponiendo `main.py`, `requirements.txt` y directorio de trabajo `/app`:
+
+```dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN python -m pip install --no-cache-dir -r requirements.txt
+COPY main.py .
+RUN mkdir -p /app/files
+EXPOSE 8000
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+La versión base es una elección ilustrativa; debe concordar con el código y las dependencias. Este Dockerfile no se construyó como parte del apunte. Si se agregan módulos, también deben copiarse. La carpeta de archivos no se copia desde el host como parte del código.
+
+Ejemplo de construcción y ejecución local desde la carpeta del proyecto:
+
+```powershell
+docker build -t api-archivos .
+docker volume create archivos-api
+docker run --name api-archivos-local -p 127.0.0.1:8000:8000 --mount type=volume,source=archivos-api,target=/app/files api-archivos
+```
+
+La API debe escribir realmente en `/app/files` para usar ese montaje. En este ejemplo, `./files` coincide con esa ruta porque el directorio de trabajo es `/app`.
+
+`EXPOSE` documenta el puerto de la imagen; **no lo publica en el host**. La publicación se configura con `-p`. Vincularla a `127.0.0.1` permite el acceso desde el propio equipo para la práctica. Referencia: [publicación de puertos de Docker](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/).
+
+#### Persistencia: reiniciar no es recrear
+
+Los datos escritos solo en la capa modificable del contenedor sobreviven a un reinicio de ese mismo contenedor, pero se pierden al eliminarlo. Un volumen con nombre tiene un ciclo de vida independiente y puede montarse en otro contenedor. Referencia: [volúmenes de Docker](https://docs.docker.com/engine/storage/volumes/).
+
+**Verificación propuesta:** crear un archivo por la API; detener el contenedor; eliminar únicamente ese contenedor de práctica; crear otro montando el mismo volumen; leer el archivo mediante la API. Conservar el volumen durante la comprobación. Esto demuestra algo más fuerte que reiniciar el mismo proceso.
+
+Un volumen local tampoco replica automáticamente los datos entre máquinas ni reemplaza copias de seguridad.
+
+#### Render: extensión opcional de la práctica
+
+El PDF describe crear un Web Service, vincular el repositorio y configurar comandos [API, pp. 3-4]. No se realizó ningún despliegue al preparar este resumen.
+
+- Construcción: `pip install -r requirements.txt`.
+- Inicio, siguiendo la variable de puerto del servicio: `uvicorn main:app --host 0.0.0.0 --port $PORT`.
+
+`$PORT` corresponde aquí al comando del entorno de despliegue; no es una variable de PowerShell local. Render requiere escuchar en `0.0.0.0` y permite indicar el puerto con su configuración. La plataforma puede desplegar automáticamente al recibir cambios en la rama vinculada; el despliegue manual del PDF es una opción según configuración. Fuente consultada el 23/10/2026: [Web Services de Render](https://render.com/docs/web-services).
+
+**Almacenamiento:** el sistema de archivos predeterminado del servicio es efímero; los cambios locales pueden perderse al reiniciar o desplegar. La persistencia exige una solución explícita, como un disco persistente compatible o almacenamiento externo, y que la API escriba en esa ubicación. Un volumen de Docker en tu PC no configura ese almacenamiento online. Referencia: [discos persistentes de Render](https://render.com/docs/disks).
+
+El propio PDF advierte que desplegar requiere decisiones adicionales de almacenamiento y que no son necesarias para el fin de la práctica. Tampoco debe confundirse acceso público con autorización adecuada sobre los archivos.
+
+<a id="c5-17"></a>
+### 17. Integración de las cinco clases y repaso
+
+La [integración de las primeras cuatro clases](#c4-16) muestra cómo construir y evolucionar reglas de negocio. Redes agrega cómo se comunican y operan esas partes cuando están separadas.
+
+| Clase | Pregunta que aporta | Aplicación en la API de archivos |
+| --- | --- | --- |
+| [1. Fundamentos](#clase-1) | ¿Qué requisitos y atributos de calidad debe cumplir el sistema? | Definir qué se guarda, qué errores se admiten y qué significa persistir. |
+| [2. Metodologías, Git y Docker](#clase-2) | ¿Cómo organizar cambios y entornos? | Tareas pequeñas, ramas, PRs y un contenedor reproducible. |
+| [3. CI/CD e IA](#clase-3) | ¿Cómo comprobar y entregar cambios? | Contrato explícito, revisión, pruebas y pipeline. |
+| [4. Arquitectura](#clase-4) | ¿Cómo dividir responsabilidades? | Separar HTTP, validación y operaciones de almacenamiento. |
+| [5. Redes](#clase-5) | ¿Cómo llegan solicitudes y respuestas? | IP, puertos, transporte, HTTP, TLS y diagnóstico por capas. |
+
+**Ejemplo propio de evolución:** se pide que la API conserve archivos al recrear el contenedor. El equipo especifica el comportamiento, configura almacenamiento persistente, comprueba creación y lectura después de la recreación y documenta el resultado. El endpoint puede conservar su contrato mientras cambia la infraestructura que lo sostiene.
+
+#### Errores frecuentes para evitar
+
+| Confusión | Explicación correcta |
+| --- | --- |
+| «Tener Wi-Fi es tener Internet». | Wi-Fi es un enlace local; la salida depende de más componentes. |
+| «La IP alcanza para identificar una aplicación». | Se necesitan contexto de transporte y puerto; HTTP agrega rutas y hosts. |
+| «TCP confirma que se guardó el archivo». | Confirma bytes; la aplicación informa el resultado de guardar. |
+| «Si responde `ping`, la API funciona». | ICMP y HTTP comprueban cosas distintas. |
+| «Más Mb/s elimina cualquier demora». | Latencia, colas y procesamiento también afectan la respuesta. |
+| «HTTPS habilita permisos sobre archivos». | Protege la comunicación; la aplicación debe autorizar operaciones. |
+| «`EXPOSE` hace accesible el contenedor». | La publicación se configura al ejecutar. |
+| «Reiniciar demuestra persistencia al recrear». | Son ciclos de vida diferentes; hay que comprobar el requisito real. |
+
+#### Preguntas para estudiar
+
+1. ¿Qué aporta cada capa y cómo se relacionan OSI y TCP/IP?
+2. ¿Qué significa encapsular y por qué una solicitud no equivale a un paquete?
+3. ¿Qué identifican IP, puerto y ruta HTTP?
+4. ¿Por qué `localhost` apunta a lugares distintos dentro y fuera de un contenedor?
+5. ¿Qué ofrece TCP que UDP no incorpora por sí mismo?
+6. ¿Por qué checksum, entrega confiable y cifrado son funciones diferentes?
+7. ¿Qué hace DNS y por qué resolver un nombre no prueba disponibilidad?
+8. ¿Cómo se leen método, cabeceras, cuerpo y estado HTTP?
+9. ¿Qué diferencia hay entre `Content-Type` y `Accept`?
+10. ¿Por qué un `404` ya demuestra una respuesta de aplicación?
+11. ¿Cómo se distinguen latencia de ida, RTT y tiempo de una API?
+12. ¿Por qué capacidad, throughput y goodput pueden tener valores distintos?
+13. ¿Qué protege TLS y qué problemas quedan a cargo de la aplicación?
+14. ¿Qué información se puede observar en una captura con tráfico cifrado?
+15. ¿Qué conclusiones no se pueden sacar de `ping`, `tracert` o `nslookup` por separado?
+16. ¿Cómo cambia el cliente si `POST /files` recibe JSON o formulario?
+17. ¿Qué debería ocurrir con nombres inválidos y archivos existentes?
+18. ¿Qué controla escuchar en `0.0.0.0` y qué controla `-p` en Docker?
+19. ¿Cómo comprobar persistencia al recrear un contenedor?
+20. ¿Qué decisiones adicionales aparecen al publicar la API online?
+
+#### Autoevaluación breve con respuestas
+
+| Caso | Respuesta razonada |
+| --- | --- |
+| `nslookup` funciona, pero no puedo conectar a `:8000`. | DNS resolvió; revisar proceso, dirección de escucha, puerto y reglas de acceso. |
+| La API devuelve `404` al leer un archivo. | Hubo respuesta HTTP; revisar ruta, nombre, almacenamiento y contrato. |
+| Se creó el archivo pero el cliente recibió timeout. | Resultado incierto para el cliente; consultar estado antes de repetir ciegamente. |
+| Una captura muestra TCP/443 sin JSON visible. | Es compatible con tráfico cifrado; el puerto por sí solo no identifica todo el contenido. |
+| El archivo desaparece después de crear otro contenedor. | Revisar dónde se escribió y si el nuevo contenedor monta el mismo almacenamiento. |
+| El enlace ofrece 100 Mb/s y la API tarda un segundo con un JSON pequeño. | La capacidad no explica toda la demora; medir RTT, conexión, colas y procesamiento. |
+
+<a id="c5-18"></a>
+### 18. Precisiones del material, fuentes y pendientes
+
+| Fuente | Observación | Tratamiento en este apunte |
+| --- | --- | --- |
+| RED, pp. 7-16 | Parte del contenido de capas y encapsulación está en imágenes. | Se revisaron las páginas renderizadas y se explicaron las figuras, además de extraer texto. |
+| RED, p. 14 | «IP identifica un dispositivo» y «IP + puerto identifica un servicio» simplifican el direccionamiento. | Se distinguen interfaz, transporte, puerto y conexión. |
+| RED, p. 17 | La tabla afirma que UDP no verifica errores, TCP garantiza entrega y UDP es siempre rápido. | Se aclaran checksum, fallas de conexión y dependencia del caso de uso. |
+| RED, p. 19 | Expansión de DNS como «Service» y mención exclusiva de UDP/53. | Se precisa «System» y uso tradicional de UDP y TCP. |
+| RED, pp. 21-23 | HTTP se presenta mediante ejemplos textuales y puertos TCP. | Se identifica HTTP/1.1 en las figuras y se distingue HTTP/3 como ampliación. |
+| RED, p. 26 | Capacidad y throughput aparecen juntos; el gráfico suma tiempos de ida y vuelta. | Se separan las métricas y el alcance de las mediciones. |
+| RED, pp. 32-33 | SSL/TLS, IPsec y certificados aparecen de forma general. | Se usa TLS, se precisa el alcance del cifrado y no se equipara dominio con identidad legal. |
+| CAP, p. 1 | Remite a un PCAP del Campus que no se recibió. | Se prepara un método de análisis sin inventar resultados. |
+| CAP, p. 1 | Algunas filas usan `<url>` para utilidades que esperan un host. | Los ejemplos usan IP o nombre de dominio, sin esquema ni ruta. |
+| API, pp. 2-3 | Enlaza carga de archivos, pero ejemplifica cuerpo JSON. | Se separan ambos contratos y se propone JSON explícitamente. |
+| API, p. 2 | Menciona `/redocs`. | Se corrige a `/redoc`, ruta predeterminada documentada. |
+| API, pp. 1 y 3-4 | La publicación online es opcional y el almacenamiento necesita definición adicional. | Se mantiene su carácter opcional y se explica la diferencia entre volumen local y persistencia online. |
+
+**Fuentes complementarias:** los enlaces a FastAPI, Docker, Render y RFC se ubican junto a las precisiones que respaldan. Los ejemplos y contratos propios son propuestas para estudiar y preparar la resolución; no cambian los requisitos explícitos de los PDFs.
+
+**Pendientes reales:** incorporar el `.pcap` del Campus para analizar evidencia concreta y, cuando se trabaje la práctica, implementar la API, acordar su contrato y ejecutar sus comprobaciones. No se presentan como realizadas esas actividades.
+
+**Revisión de esta actualización:** se comprobó que los tres PDFs guardados son idénticos a los originales, que los destinos locales del apunte existen y que sus anclas explícitas no están duplicadas. Se corrigieron cuatro enlaces anteriores afectados por la representación de los acentos en los nombres de archivo. Los nuevos fragmentos Python se revisaron sintácticamente; esto no equivale a ejecutar la API, construir la imagen ni validar un despliegue.
 
 [Volver al índice](#indice)
