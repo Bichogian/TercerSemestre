@@ -1,0 +1,6 @@
+[submodule "Mate y optimizacion"]
+	path = ML 2/Repo/Mate y optimizacion
+	url = https://github.com/ferkricun/Mate_y_optimizacion.git
+[submodule "ML2"]
+	path = ML 2/Repo/ML2/RepoML2
+	url = https://github.com/Bichogian/ML2.git

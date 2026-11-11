@@ -1,6 +1,10 @@
 # Ingeniería de Software — FastResumen
 
-Guía para repasar **después de leer el [resumen completo](Ing_Soft.md)**. Cada clase reúne las ideas centrales, qué significan y cómo se aplican. Los ejemplos extensos, diagramas y fuentes quedan en el documento completo.
+Guía para obtener una primera visión de la materia y repasar después. El [resumen completo](Ing_Soft.md) desarrolla cada explicación y sus ejemplos. Cada clase reúne las ideas centrales, qué significan y cómo se aplican. Los ejemplos extensos, diagramas y fuentes quedan en el documento completo. **Incluye las clases 1 a 5 y 7; la clase 6 fue una evaluación.**
+
+## Cómo leer este resumen
+
+El recorrido es: **construir software → organizar el equipo → probar y entregar cambios → diseñar su estructura → comunicar sus partes → preparar y actualizar datos**. Leé cada clase preguntándote qué problema resuelve y cómo se aplica el ejemplo.
 
 ## Índice
 
@@ -9,6 +13,8 @@ Guía para repasar **después de leer el [resumen completo](Ing_Soft.md)**. Cada
 - [Clase 3 · DevOps, CI/CD e IA](#clase-3)
 - [Clase 4 · Arquitectura y patrones](#clase-4)
 - [Clase 5 · Redes y APIs](#clase-5)
+- [Clase 6 · Evaluación](#clase-6)
+- [Clase 7 · Ingeniería de datos y orquestación](#clase-7)
 - [Herramientas y plataformas: para qué sirve cada una](#herramientas)
 - [Cómo se conecta todo](#recorrido)
 
@@ -312,6 +318,139 @@ Después se empaqueta con Docker y se monta almacenamiento persistente. **Recrea
 
 [Ampliar Clase 5](Ing_Soft.md#clase-5) · [Volver al índice](#índice)
 
+<a id="clase-6"></a>
+## Clase 6 · Evaluación
+
+La clase 6 fue una **evaluación**. No hay una clase teórica faltante para resumir; se conserva la numeración original.
+
+<a id="clase-7"></a>
+## Clase 7 · Ingeniería de datos y orquestación
+
+**Idea central:** convertir datos dispersos en información útil y mantener ese proceso funcionando.
+
+**Ejemplo que une la clase:** una empresa quiere ver cada mañana cuánto vendió ayer en cada sucursal. Para conseguirlo hay que traer las ventas, corregir formatos, quitar duplicados, sumar importes y publicar el reporte. Ese proceso debe repetirse y permitir detectar fallas.
+
+### Del dato al producto
+
+La **ingeniería de datos** permite capturar, mover, almacenar, transformar y servir datos. Un **producto de datos** resuelve una necesidad mediante una tabla, reporte, API, dashboard o modelo, con usuarios, continuidad, documentación y expectativas de calidad.
+
+Debe ser descubrible, comprensible, accesible, confiable, interoperable y seguro. Tener datos guardados no garantiza que alguien pueda utilizarlos correctamente.
+
+**Trabajar hacia atrás:** primero definir qué decisión se quiere tomar; después, qué datos hacen falta y con qué calidad y frescura. Se equilibran **costo, velocidad y precisión**. Un informe mensual y una alerta de fraude no necesitan la misma arquitectura.
+
+| Nivel de análisis | Pregunta |
+|---|---|
+| Descriptivo | ¿Qué ocurrió? |
+| Diagnóstico | ¿Por qué ocurrió? |
+| Predictivo | ¿Qué podría ocurrir? |
+| Prescriptivo | ¿Qué conviene hacer? |
+
+### Qué características de los datos importan
+
+Las **cinco V** ayudan a elegir cómo trabajar:
+
+| Característica | Pregunta sencilla |
+|---|---|
+| Volumen | ¿Cuántos datos hay? |
+| Velocidad | ¿Con qué ritmo llegan y cuán pronto deben estar disponibles? |
+| Variedad | ¿De cuántas fuentes y formatos vienen? |
+| Veracidad | ¿Podemos confiar en su calidad? |
+| Valor | ¿Para qué decisión sirven? |
+
+### Cómo llegan y cómo están organizados
+
+- **Batch:** procesar lotes periódicos, como ventas de cada noche.
+- **Streaming:** procesar eventos continuamente para reducir demora; no implica latencia cero.
+
+El **esquema** define campos, tipos y reglas de los datos. Según su organización:
+
+- **Estructurados:** esquema regular, como una tabla de ventas.
+- **Semiestructurados:** estructura flexible, como JSON.
+- **No estructurados:** imágenes o texto sin un esquema tabular directo para el análisis.
+
+### Qué hacemos con los datos
+
+El recorrido es **generación → ingesta → almacenamiento → transformación → consumo**. En el ejemplo: registrar la venta → traerla desde la sucursal → guardarla → limpiar y sumar → consultar el reporte. Calidad, gobierno y protección de datos atraviesan todas las etapas.
+
+El Data Engineer prepara el movimiento y disponibilidad; el Analytics Engineer modela datos analíticos y su semántica; el analista interpreta y comunica; Data Science/ML desarrolla modelos; el Data Product Manager prioriza necesidades y valor. Los roles pueden superponerse.
+
+### Operar el negocio y analizarlo
+
+**OLTP** es procesamiento de transacciones: registra y consulta operaciones individuales. **OLAP** es procesamiento analítico: cruza y resume datos para responder preguntas.
+
+**Para recordarlo:** la caja registra una venta mediante OLTP; el informe compara miles de ventas mediante OLAP.
+
+### Dónde se guardan los datos para analizarlos
+
+| Concepto | Idea central |
+|---|---|
+| Data warehouse | Datos preparados y modelados para análisis. |
+| Data mart | Datos analíticos centrados en un área del negocio. |
+| Data lake | Datos de múltiples formatos a escala, incluidos datos crudos. |
+| Data lakehouse | Flexibilidad del lake con capacidades de gestión y análisis del warehouse. |
+
+**OLTP/OLAP describen usos y cargas de trabajo; no se definen solo por tamaño.** Lake y warehouse pueden coexistir. Guardar datos crudos no garantiza calidad ni facilidad de consulta.
+
+### ETL y ELT: cuándo se transforman los datos
+
+**Extraer** es obtener los datos; **transformar** es prepararlos; **cargar** es guardarlos en el destino elegido.
+
+| Flujo | Orden | Ejemplo de ventas |
+|---|---|---|
+| ETL | Extraer → transformar → cargar. | Leer archivos, limpiar y sumar, guardar el resultado. |
+| ELT | Extraer → cargar → transformar. | Leer archivos, guardarlos en el destino, limpiar y sumar allí. |
+
+Ambos transforman datos. Cambia **si esa preparación ocurre antes o después de la carga**.
+
+Una plataforma conecta fuentes, ingesta, almacenamiento, transformaciones y consumo. Necesita infraestructura, gobierno, calidad y orquestación, además de herramientas.
+
+### Orquestación y DAGs
+
+Un **pipeline** organiza etapas de procesamiento. La **orquestación** coordina cuándo se ejecutan, de qué dependen y cómo se observa su resultado.
+
+Un **DAG** es un grafo dirigido sin ciclos: las tareas son nodos y las dependencias son flechas.
+
+```text
+extraer_ventas ────┐
+                  ├──> transformar → validar → publicar
+extraer_clientes ─┘
+```
+
+Las extracciones pueden ejecutarse en paralelo si hay recursos; transformar espera ambas. Correr el mismo DAG todos los días genera nuevas ejecuciones y no crea un ciclo en el grafo.
+
+- **Idempotencia:** repetir una operación mantiene el efecto final previsto; por ejemplo, cargar dos veces las mismas 100 ventas y terminar con 100 registros, no 200.
+- **Reintentos con backoff:** volver a intentar fallas transitorias con esperas crecientes.
+- **Observabilidad:** estados, logs, tiempos y controles sobre los datos producidos.
+
+**Reintentar no evita duplicados por sí mismo.** Y que una tarea termine en éxito no garantiza que sus datos sean correctos.
+
+### Airflow y la práctica
+
+**Airflow** permite definir flujos de trabajo (*workflows*) en Python y coordinar sus ejecuciones. El **scheduler** programa las tareas y los **workers** las ejecutan. La **UI** es la interfaz visual; los **logs** son registros de lo ocurrido. La base de metadatos conserva información de las ejecuciones, como sus estados.
+
+**DAG** es el plan «preparar el reporte diario». Una **ejecución del DAG** es aplicar ese plan a una corrida concreta, por ejemplo la de las ventas del lunes. Una **instancia de tarea** es un paso dentro de esa corrida, como validar esas ventas.
+
+La práctica pide instalar y explorar Airflow, recrear el tutorial y observar sus ejecuciones:
+
+1. Preparar un entorno virtual y seguir la documentación de una misma versión. En Windows, usar WSL según la consigna.
+2. Comprobar `airflow version`, iniciar con `airflow standalone` y acceder a `http://localhost:8080` con las credenciales indicadas por la terminal.
+3. Crear el archivo del tutorial en la carpeta de DAGs activa. Cambiar **nombre del archivo e identificador del DAG** para distinguirlo del ejemplo incluido.
+4. Verificar que aparezca, ejecutar y revisar grafo, estados y logs; modificar y observar el resultado.
+
+El tutorial coordina tareas didácticas; no construye todavía un producto de datos completo. Esta es una guía de estudio: la instalación y las ejecuciones no se realizaron al actualizar los apuntes.
+
+**CI/CD comprueba y entrega cambios del código; Airflow coordina sus corridas sobre datos.** Ambos automatizan procesos, pero actúan en momentos diferentes.
+
+### Comprobá que lo entendiste
+
+- **¿Qué recibe el usuario?** Un producto de datos, como el reporte de ventas.
+- **¿Qué lo produce?** Un pipeline con tareas de extracción, preparación y validación.
+- **¿Qué representa el DAG?** Las tareas y sus dependencias.
+- **¿Qué hace Airflow?** Coordina las ejecuciones y permite observar qué ocurrió.
+- **¿Por qué importa la idempotencia?** Permite repetir trabajo sin duplicar su efecto.
+
+[Ampliar Clase 7 y práctica](Ing_Soft.md#clase-7) · [Volver al índice](#índice)
+
 <a id="herramientas"></a>
 ## Herramientas y plataformas: para qué sirve cada una
 
@@ -326,6 +465,8 @@ Después se empaqueta con Docker y se monta almacenamiento persistente. **Recrea
 | **Pydantic** | Definir y validar la estructura de los datos. |
 | **Uvicorn** | Servir la aplicación ASGI y atender conexiones. |
 | **Render** | Alojar y ejecutar una aplicación accesible por red. |
+| **Apache Airflow** | Coordinar DAGs, programar tareas y observar sus ejecuciones. |
+| **dbt** | Organizar transformaciones analíticas y sus comprobaciones. |
 | **Wireshark** | Inspeccionar tráfico de red para entenderlo o diagnosticarlo. |
 | **Jira / Trello / GitHub Projects** | Organizar tareas, prioridades y estados del trabajo. |
 
@@ -336,8 +477,9 @@ Después se empaqueta con Docker y se monta almacenamiento persistente. **Recrea
 2. **Organizar y construir:** priorizar tareas, trabajar en ramas y revisar cambios mediante PRs.
 3. **Comprobar:** ejecutar pruebas y análisis con CI.
 4. **Empaquetar y entregar:** construir una imagen Docker y desplegarla en un entorno de ejecución.
-5. **Operar y aprender:** atender pedidos por red, observar errores y rendimiento y ajustar el sistema.
+5. **Preparar productos de datos:** conectar fuentes, definir transformaciones y validar calidad para el consumo.
+6. **Operar y aprender:** atender pedidos por red, orquestar actualizaciones, observar errores y rendimiento y ajustar el sistema.
 
-Ejemplo: para agregar un descuento a una API de facturas, se define la regla, se implementa como política, se prueba, se revisa el PR, pasa la CI y se despliega la nueva versión. Git conserva el cambio; GitHub organiza su revisión; Actions automatiza controles; Docker prepara el entorno; el servidor ejecuta la API.
+Ejemplo: para agregar un descuento a una API de facturas, se define la regla, se implementa como política, se prueba, se revisa el PR, pasa la CI y se despliega la nueva versión. Git conserva el cambio; GitHub organiza su revisión; Actions automatiza controles; Docker prepara el entorno; el servidor ejecuta la API. Si se necesita un reporte diario de facturación, un pipeline extrae las operaciones, las transforma y valida, y publica el resultado. Airflow coordina esas tareas; la CI comprueba los cambios del código que las define.
 
 [Volver al índice](#índice)

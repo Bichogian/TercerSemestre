@@ -3,15 +3,27 @@
 <a id="indice"></a>
 ## Índice
 
-**Contenido actual:** Clases 1 a 5, con sus prácticas. La Clase 5 incorpora redes, análisis de tráfico y una API de archivos con FastAPI.
+**Contenido actual:** Clases 1 a 5 y 7, con sus prácticas. La **clase 6 fue una evaluación**. La clase 7 incorpora ingeniería de datos y la práctica de orquestación con Airflow.
 
-**Acceso rápido:** [Clase 1](#clase-1) · [Clase 2](#clase-2) · [Clase 3](#clase-3) · [Clase 4](#clase-4) · [Clase 5](#clase-5) · [Integración de las cinco clases](#c5-17)
+**Acceso rápido:** [Clase 1](#clase-1) · [Clase 2](#clase-2) · [Clase 3](#clase-3) · [Clase 4](#clase-4) · [Clase 5](#clase-5) · [Clase 6: Evaluación](#clase-6) · [Clase 7](#clase-7) · [Integración de toda la materia](#c7-12)
 
-**Recorrido para estudiar:** fundamentos → organización del equipo → cambios revisados con Git → entornos con Docker → comprobaciones y entregas automáticas → desarrollo asistido por IA → arquitectura y reglas de negocio extensibles → comunicación por redes y APIs.
+**Recorrido para estudiar:** fundamentos → organización del equipo → cambios revisados con Git → entornos con Docker → comprobaciones y entregas automáticas → desarrollo asistido por IA → arquitectura y reglas de negocio extensibles → comunicación por redes y APIs → productos de datos y orquestación.
 
 Las figuras aparecen junto al tema que explican. **Imagen original** identifica un recorte del PDF; **esquema propio** identifica una versión simplificada en español. Debajo de cada figura se explica cómo leerla y se indica su fuente.
 
-> **Lectura rápida:** recorré los títulos, las figuras y las ideas clave. Después usá las tablas y los ejemplos de comandos para profundizar.
+> **Cómo estudiar:** empezá con el [resumen rápido](FastResumen.md) para ubicar los conceptos. En este documento, leé cada explicación y su ejemplo; después intentá responder las preguntas de repaso sin mirar las respuestas.
+
+### La materia en un recorrido
+
+| Clase | Pregunta central | Qué te llevás |
+| --- | --- | --- |
+| [1. Fundamentos](#clase-1) | ¿Cómo construir software que podamos mantener? | Requisitos, calidad, principios de diseño y Git. |
+| [2. Trabajo en equipo](#clase-2) | ¿Cómo coordinamos personas, cambios y entornos? | Metodologías, colaboración con GitHub y Docker. |
+| [3. Desarrollo moderno](#clase-3) | ¿Cómo comprobamos y entregamos los cambios? | DevOps, pruebas, CI/CD y desarrollo asistido por IA. |
+| [4. Arquitectura](#clase-4) | ¿Cómo dividimos el sistema para que pueda evolucionar? | Componentes, responsabilidades y patrones. |
+| [5. Redes](#clase-5) | ¿Cómo se comunican las partes del sistema? | IP, puertos, protocolos, HTTP y APIs. |
+| [6. Evaluación](#clase-6) | Instancia de evaluación. | No hay contenido teórico adicional. |
+| [7. Datos](#clase-7) | ¿Cómo obtenemos datos útiles de forma repetible? | Productos de datos, almacenamiento, ETL/ELT y orquestación. |
 
 Las imágenes están guardadas en `Imagenes/`, junto a este archivo, y se muestran al abrir la vista previa de este Markdown.
 
@@ -120,6 +132,28 @@ Las imágenes están guardadas en `Imagenes/`, junto a este archivo, y se muestr
 - [16. Docker, persistencia y despliegue opcional](#c5-16)
 - [17. Integración de las cinco clases y repaso](#c5-17)
 - [18. Precisiones del material, fuentes y pendientes](#c5-18)
+
+### Clase 6
+
+[Evaluación: sin material teórico adicional](#clase-6).
+
+### Clase 7
+
+[Ir a la Clase 7: Ingeniería de datos y orquestación](#clase-7)
+
+- [1. Ingeniería de datos y productos de datos](#c7-01)
+- [2. Empezar por la decisión: valor y trade-offs](#c7-02)
+- [3. Las cinco V y las decisiones de infraestructura](#c7-03)
+- [4. Datos estructurados, semiestructurados y no estructurados](#c7-04)
+- [5. Ciclo de vida y roles del equipo](#c7-05)
+- [6. OLTP y OLAP: operar y analizar](#c7-06)
+- [7. Warehouse, mart, lake y lakehouse](#c7-07)
+- [8. ETL, ELT y plataformas modernas](#c7-08)
+- [9. Pipelines, orquestación y DAGs](#c7-09)
+- [10. Airflow: coordinar el trabajo y observarlo](#c7-10)
+- [11. Práctica de orquestación: consigna y recorrido](#c7-11)
+- [12. Cómo se conecta toda la materia](#c7-12)
+- [13. Repaso y autoevaluación](#c7-13)
 
 ---
 
@@ -3716,3 +3750,364 @@ La [integración de las primeras cuatro clases](#c4-16) muestra cómo construir 
 **Revisión de esta actualización:** se comprobó que los tres PDFs guardados son idénticos a los originales, que los destinos locales del apunte existen y que sus anclas explícitas no están duplicadas. Se corrigieron cuatro enlaces anteriores afectados por la representación de los acentos en los nombres de archivo. Los nuevos fragmentos Python se revisaron sintácticamente; esto no equivale a ejecutar la API, construir la imagen ni validar un despliegue.
 
 [Volver al índice](#indice)
+
+---
+
+<a id="clase-6"></a>
+## Clase 6: Evaluación
+
+La clase 6 fue una **evaluación**. Por eso el contenido teórico continúa en la clase 7.
+
+[Volver al índice](#indice)
+
+---
+
+<a id="clase-7"></a>
+## Clase 7: Ingeniería de datos y orquestación
+
+**Qué vas a entender:** cómo convertir fuentes de datos en un producto útil, cómo elegir almacenamiento y procesamiento, y cómo coordinar las tareas mediante un DAG.
+
+**Conexión con las clases anteriores:** un pipeline de datos también es software: tiene requisitos, versiones, pruebas, dependencias, comunicaciones por red y necesidades de operación.
+
+#### La idea de la clase, con un ejemplo
+
+Una cadena de tiendas quiere saber **cuánto vendió ayer cada sucursal**. Las ventas existen, pero están repartidas entre sistemas y pueden contener duplicados o formatos distintos. Para obtener un reporte confiable hay que reunirlas, prepararlas y comprobarlas, todos los días.
+
+```text
+Sistemas de ventas → reunir datos → limpiar y calcular → comprobar → reporte
+                    ingesta        transformación       calidad     consumo
+```
+
+Ese recorrido es un **pipeline de datos**. El reporte que usa el equipo es el **producto de datos**. La **orquestación** organiza cuándo se ejecuta cada paso, cuáles esperan a otros y qué ocurre si alguno falla. **Airflow** es la herramienta de orquestación que se explora en la práctica.
+
+A lo largo de esta clase, pensá cada concepto sobre ese mismo caso. Primero se define qué necesita el usuario; después se eligen los datos, el almacenamiento y las tareas.
+
+**Fuentes:** [Clase 7: Fundamentos de Ingeniería de Datos](<Clases/Clase 7 Fundamentos Ingeniería de Datos.pdf>) (45 páginas; **DAT**) y [Práctica de Orquestación con Apache Airflow](<Practicas/Práctica de Orquestación MIA203.pdf>) (2 páginas; **ORQ**). Las páginas se cuentan desde el inicio de cada PDF. Los ejemplos propios se identifican como tales. La consigna se explica para estudiar; no se ejecutó la instalación ni se resolvió la práctica en un entorno Airflow.
+
+<a id="c7-01"></a>
+### 1. Ingeniería de datos y productos de datos
+
+La **ingeniería de datos** permite capturar, mover, almacenar, transformar y servir datos para que otras personas o sistemas los utilicen. Su resultado debe ser confiable y mantenible: obtener un archivo una vez no alcanza si un proceso necesita recibir información válida todos los días.
+
+Un **producto de datos** entrega valor mediante datos: un reporte, una API, un dashboard, un conjunto de datos o un modelo. Pensarlo como producto implica usuarios, continuidad, prioridades de evolución y compromisos de servicio; un proyecto puede ser el esfuerzo acotado que lo crea [DAT, pp. 5-6].
+
+| Atributo | Cómo reconocerlo en un producto de datos |
+| --- | --- |
+| Descubrible | Se puede encontrar y evaluar si sirve para una necesidad. |
+| Direccionable | Tiene una dirección estable y un modo de acceso definido. |
+| Comprensible | Documenta campos, propósito, ejemplos y significado de las métricas. |
+| Confiable | Explicita y mide calidad, disponibilidad y actualización. |
+| Accesible | Ofrece interfaces adecuadas a sus consumidores, como SQL, API o reportes. |
+| Interoperable | Usa claves y convenciones que permiten combinarlo con otros productos. |
+| Valioso por sí mismo | Resuelve una necesidad de su dominio. |
+| Seguro | Controla accesos y protege los datos. |
+
+Estos atributos aparecen en el material asociados a **data mesh**. No hace falta adoptar toda una organización basada en data mesh para usarlos como preguntas de diseño.
+
+**Ejemplo propio:** una tabla diaria de ventas por sucursal se convierte en un producto cuando hay consumidores claros, definición de «venta», horario de actualización, responsable y controles sobre faltantes y duplicados.
+
+<a id="c7-02"></a>
+### 2. Empezar por la decisión: valor y trade-offs
+
+Las preguntas de negocio guían la solución: recomendar productos, anticipar abandono, entender estacionalidad o detectar fraude [DAT, pp. 6-12]. La clase distingue cuatro niveles de análisis:
+
+| Nivel | Pregunta |
+| --- | --- |
+| Descriptivo | ¿Qué ocurrió? |
+| Diagnóstico | ¿Por qué ocurrió? |
+| Predictivo | ¿Qué podría ocurrir? |
+| Prescriptivo | ¿Qué acción conviene tomar? |
+
+La figura de la clase relaciona mayor sofisticación con mayor dificultad y valor potencial. No asegura que un modelo complejo aporte más valor que un reporte que resuelve bien una necesidad.
+
+![Imagen original: trabajar hacia atrás desde la decisión](Imagenes/clase7_p12.png)
+
+**Cómo leerla:** primero se define la decisión y luego se pregunta qué datos la sostienen. Finalmente se evalúan costo, velocidad y precisión. Fuente: DAT, p. 12.
+
+**Frescura** significa qué tan actualizados están los datos disponibles. Importa cuando todavía permite actuar. Una alerta de fraude puede perder utilidad después de autorizar una operación; un análisis de ventas anual no necesita actualizarse cada segundo. Diseñar exige decidir frecuencia de uso, cantidad de consumidores, completitud, disponibilidad, exactitud y antigüedad tolerable de los datos.
+
+**Regla para estudiar:** empezar por el uso y los requisitos; después elegir tecnologías. Más velocidad suele exigir más recursos y complejidad, y esperar más datos puede mejorar completitud a costa de demora.
+
+<a id="c7-03"></a>
+### 3. Las cinco V y las decisiones de infraestructura
+
+Las cinco V son cinco preguntas para entender los datos antes de elegir una solución. **Ingesta** significa traer datos desde las fuentes; **infraestructura** son los recursos de almacenamiento, procesamiento y comunicación que sostienen el sistema.
+
+| Característica | Pregunta | Decisión que ayuda a tomar |
+| --- | --- | --- |
+| Volumen | ¿Cuántos datos hay y cuánto crecen? | Capacidad, retención y necesidad de distribuir trabajo. |
+| Velocidad | ¿Con qué frecuencia llegan y cuándo deben procesarse? | Ingesta por lotes o continua; frecuencia de actualización. |
+| Variedad | ¿Qué formatos y fuentes hay? | Conectores, esquemas y transformaciones. |
+| Veracidad | ¿Qué tan correctos, completos y confiables son? | Validaciones, limpieza y trazabilidad. |
+| Valor | ¿Qué decisión o resultado permiten mejorar? | Prioridades y costo justificable. |
+
+DAT, pp. 15-19, aplica volumen y velocidad a **ingesta, almacenamiento, procesamiento y visualización**. Son decisiones relacionadas: ingerir rápido no sirve si el reporte se actualiza una vez por mes cuando la necesidad exige minutos.
+
+**Batch:** procesa conjuntos acotados periódicamente, como ventas nocturnas. **Streaming:** procesa un flujo continuo de eventos para reducir la demora, como señales de fraude. Streaming no significa latencia cero ni elimina problemas de eventos duplicados o tardíos.
+
+**Ejemplo propio:** un informe mensual puede conservar años de datos y ejecutar agregaciones por lotes. Una recomendación durante la compra necesita acceso rápido al contexto reciente. La elección responde al uso; no hay una modalidad universalmente superior.
+
+<a id="c7-04"></a>
+### 4. Datos estructurados, semiestructurados y no estructurados
+
+Un **esquema** describe cómo se organizan los datos: qué campos existen, qué tipos tienen y qué reglas deben cumplir. Por ejemplo, una venta puede tener `id_venta`, `fecha`, `sucursal` e `importe`.
+
+| Tipo | Organización | Ejemplo y trabajo necesario |
+| --- | --- | --- |
+| Estructurados | Esquema explícito y regular. | Tabla de ventas: consultar columnas y relaciones. |
+| Semiestructurados | Campos o etiquetas con estructura flexible. | JSON de conversaciones: extraer campos y resolver variaciones. |
+| No estructurados | Sin un esquema tabular directo para el análisis buscado. | Imágenes o texto libre: extraer características o interpretar contenido. |
+
+**No estructurado no significa sin ningún formato:** una imagen tiene un formato de archivo, pero no llega como una tabla de conceptos del negocio. El tipo de dato tampoco determina por sí solo su calidad o valor [DAT, pp. 20-22].
+
+**Precisiones:** la diapositiva incluye CSV entre los semiestructurados, aunque un CSV con columnas y esquema fijo puede representar datos estructurados. Un clickstream puede almacenarse como eventos JSON o tablas. Las etiquetas dependen de la representación. El «80% o más» de datos no estructurados de la p. 21 se conserva como afirmación ilustrativa del material, no como una proporción universal demostrada.
+
+<a id="c7-05"></a>
+### 5. Ciclo de vida y roles del equipo
+
+El recorrido principal es **generación/captura → ingesta → almacenamiento → transformación → consumo** [DAT, p. 24].
+
+| Etapa | Qué hace | En el ejemplo de las tiendas |
+| --- | --- | --- |
+| Generación/captura | Registrar un hecho. | La caja registra una venta. |
+| Ingesta | Incorporar datos desde su origen. | Traer las ventas de cada sucursal. |
+| Almacenamiento | Conservar los datos. | Guardar ventas para consultarlas y procesarlas. |
+| Transformación | Preparar datos para un uso. | Unificar fechas, eliminar duplicados y sumar importes. |
+| Consumo | Usar el resultado. | Consultar el reporte y decidir reposición de productos. |
+
+En una plataforma real puede haber varias etapas de almacenamiento y transformación, retroalimentación y reprocesamientos.
+
+La pirámide de necesidades de datos [DAT, p. 25] ubica captura y almacenamiento confiable en la base; luego limpieza, agregaciones y datos de entrenamiento; después experimentación y aprendizaje. La idea es que **la IA depende de una base de datos y procesos que funcionen**.
+
+| Rol | Foco del trabajo según la clase |
+| --- | --- |
+| Data Engineer | Movimiento, transformación y disponibilidad de datos. |
+| Analytics Engineer | Modelado analítico, semántica y pruebas de datos. |
+| Data Analyst | Exploración, BI, hipótesis y comunicación. |
+| Data Scientist / ML Engineer | Experimentación, modelos y puesta en operación de ML. |
+| Data Product Manager | Necesidades de usuarios, prioridades y métricas del producto. |
+
+Las responsabilidades pueden superponerse; la tabla explica focos, no fronteras obligatorias entre puestos [DAT, pp. 13 y 36].
+
+<a id="c7-06"></a>
+### 6. OLTP y OLAP: operar y analizar
+
+**OLTP** significa *Online Transaction Processing*: procesamiento de transacciones. **OLAP** significa *Online Analytical Processing*: procesamiento analítico. Para recordarlos: **OLTP registra la venta; OLAP permite analizar las ventas**.
+
+| Aspecto | OLTP | OLAP |
+| --- | --- | --- |
+| Objetivo | Registrar y consultar operaciones del negocio. | Analizar datos para tomar decisiones. |
+| Trabajo típico | Muchas transacciones pequeñas y actualizaciones puntuales. | Lecturas amplias, agregaciones y cruces históricos. |
+| Ejemplo | Confirmar una compra o actualizar un perfil. | Comparar ventas por región durante varios años. |
+| Diseño habitual | Modelos orientados a transacciones. | Modelos orientados a consultas analíticas, como estrella. |
+| Prioridad | Respuesta oportuna y corrección de cada operación. | Consultas analíticas eficientes y métricas consistentes. |
+
+DAT, pp. 26-30, separa el **plano operacional**, que sostiene el negocio, del **plano analítico**, que ayuda a comprenderlo y mejorarlo. Un pipeline conecta ambos sin que sean necesariamente la misma base de datos.
+
+Los tamaños y tiempos indicados en las diapositivas son ejemplos habituales, no definiciones: OLTP no está limitado a gigabytes ni OLAP se identifica exclusivamente por tardar segundos. Una base relacional puede participar en ambos usos.
+
+**Ejemplo propio:** la aplicación registra una venta en OLTP. Luego el pipeline integra ventas y clientes para una consulta OLAP sobre facturación mensual. Son necesidades distintas sobre datos relacionados.
+
+<a id="c7-07"></a>
+### 7. Warehouse, mart, lake y lakehouse
+
+| Concepto | Función principal | Qué no conviene confundir |
+| --- | --- | --- |
+| Data warehouse | Reunir datos preparados y modelados para análisis. | No es simplemente cualquier base de datos centralizada. |
+| Data mart | Ofrecer datos analíticos enfocados en un área, como ventas. | El material lo presenta como un subconjunto del warehouse. |
+| Data lake | Conservar datos de múltiples formatos a escala, incluidos datos crudos. | Almacenar todo no garantiza calidad, catálogo ni facilidad de uso. |
+| Data lakehouse | Combinar la flexibilidad del lake con capacidades de gestión y análisis propias del warehouse. | No alcanza con renombrar una carpeta de archivos. |
+
+**Aplicado a las tiendas:** un lake puede conservar archivos originales de cada sucursal; un warehouse reúne tablas preparadas con criterios comunes; un mart de ventas presenta la parte que necesita el equipo comercial. Un lakehouse incorpora capacidades de gestión y consulta analítica sobre datos del lake. Es un ejemplo de organización, no una obligación de usar las cuatro alternativas.
+
+Estas alternativas pueden coexistir [DAT, pp. 29-30]. La arquitectura depende de consumidores, formatos, volumen, gobierno y requisitos de consulta.
+
+<a id="c7-08"></a>
+### 8. ETL, ELT y plataformas modernas
+
+**Extraer** obtiene datos desde las fuentes; **transformar** limpia, valida, combina o calcula; **cargar** escribe en un destino.
+
+![Imagen original: orden de las etapas en ETL y ELT](Imagenes/clase7_p31.png)
+
+**Cómo leerla:** a la izquierda se transforma antes de cargar en el destino; a la derecha se carga primero y luego se transforma dentro del entorno de destino. Fuente: DAT, p. 31.
+
+| Flujo | Orden | Implicación |
+| --- | --- | --- |
+| ETL | Extraer → transformar → cargar. | El destino recibe datos ya preparados por una etapa anterior. |
+| ELT | Extraer → cargar → transformar. | Se aprovecha el procesamiento del destino para preparar datos cargados. |
+
+**Mismo problema, dos recorridos posibles:**
+
+- **ETL:** leer archivos de ventas → corregir fechas y calcular totales en un proceso externo → cargar los resultados en el almacén analítico.
+- **ELT:** leer archivos de ventas → cargarlos en el destino → corregir fechas y calcular totales usando el procesamiento de ese destino.
+
+En ambos casos se busca un resultado utilizable. La diferencia es **si la preparación principal ocurre antes o después de cargar en el destino elegido**.
+
+**ELT no elimina la transformación.** Tampoco significa que se pueda ignorar la protección de datos sensibles al cargar información cruda.
+
+Las plataformas de las pp. 32-35 combinan fuentes, conectores de ingesta, almacenamiento, transformaciones y consumo mediante BI, aplicaciones o ML. **Gobierno, calidad, orquestación e infraestructura** atraviesan todo el recorrido.
+
+- **Gobierno:** quién es responsable, quién accede y qué significan los datos.
+- **Calidad:** controles sobre completitud, validez, consistencia y actualización.
+- **Orquestación:** dependencias, momentos de ejecución y seguimiento del trabajo.
+- **Infraestructura:** recursos donde se almacena y procesa.
+
+Los diagramas muestran ejemplos de herramientas y plataformas; no son una lista de productos que haya que instalar. El ejemplo de genómica aplica la misma lógica a datos científicos: fuentes, pipelines, análisis y consumo. **Reverse ETL**, presente en la figura de la p. 33, lleva resultados analíticos hacia herramientas operacionales; no deshace matemáticamente una transformación.
+
+<a id="c7-09"></a>
+### 9. Pipelines, orquestación y DAGs
+
+Un **pipeline de datos** encadena trabajo para mover o transformar datos. **Orquestar** es coordinar qué tareas se ejecutan, cuándo, con qué dependencias y cómo se observa su resultado [DAT, pp. 38-40].
+
+Un **DAG**, grafo dirigido acíclico, representa tareas y dependencias. Las flechas tienen dirección y no puede existir un camino que vuelva a la misma tarea formando un ciclo.
+
+```text
+Ejemplo propio: ventas diarias
+
+extraer_ventas ────┐
+                  ├──> transformar ──> validar ──> publicar_reporte
+extraer_clientes ─┘
+```
+
+**Cómo leerlo:** las extracciones son independientes; la transformación necesita ambas; el reporte espera la validación. La ausencia de dependencia permite concurrencia, pero los recursos y la configuración determinan si las tareas realmente se ejecutan a la vez.
+
+Repetir el DAG cada día **no crea un ciclo**: genera nuevas ejecuciones del mismo grafo. El grafo matemático representa dependencias; la definición operativa en una herramienta añade programación, parámetros, reintentos y callbacks.
+
+| Propiedad | Qué aporta | Ejemplo propio |
+| --- | --- | --- |
+| Idempotencia | Repetir una operación conserva el mismo efecto final previsto. | Reemplazar el conjunto de filas del día, llamado partición, en lugar de agregarlo dos veces. |
+| Reintentos con backoff | Volver a intentar una falla transitoria dejando esperas crecientes. | Recuperarse de una indisponibilidad temporal de la fuente. |
+| Observabilidad | Entender qué pasó y detectar problemas. | Estado de tareas, logs, duración, filas procesadas y frescura. |
+
+**Ejemplo numérico de idempotencia:** se cargan 100 ventas del lunes y luego la tarea falla al comunicar que terminó. Si el reintento vuelve a agregar esas mismas filas, habrá 200 registros para 100 ventas. Una carga diseñada para reemplazar ese día o actualizar por identificadores únicos puede repetir el trabajo sin duplicar ventas. El resultado que importa es el estado final de los datos.
+
+**Un reintento no evita duplicados por sí solo.** Si la tarea escribió datos antes de fallar, hay que diseñar cómo repetirla sin multiplicar resultados. Tampoco conviene reintentar indefinidamente un error de esquema que requiere corregir código o datos.
+
+Un pipeline con todas sus tareas en éxito puede producir datos incorrectos si no tiene validaciones suficientes. Por eso se monitorean tanto la ejecución como la salud de los datos.
+
+<a id="c7-10"></a>
+### 10. Airflow: coordinar el trabajo y observarlo
+
+La clase presenta **Apache Airflow** como una plataforma de orquestación con flujos definidos en Python e integraciones con otros servicios [DAT, pp. 41-44].
+
+![Imagen original: arquitectura simplificada de Airflow](Imagenes/clase7_p42.png)
+
+**Cómo leerla:** el usuario escribe archivos de DAG, el sistema los interpreta y programa tareas, y la interfaz permite operar y observar ejecuciones. La base de metadatos conserva información del funcionamiento de Airflow. Fuente: DAT, p. 42.
+
+La figura agrupa componentes. En la arquitectura documentada de Airflow 3, el **DAG processor** interpreta definiciones; el **scheduler** programa trabajo; el **executor** determina cómo ejecutarlo; los **workers** realizan tareas; el **API server** sirve la API y la interfaz; la **base de metadatos** guarda estados. No deben confundirse esos metadatos con el almacén de datos de negocio. Referencia: [arquitectura oficial](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html).
+
+| Término | Qué significa | Ejemplo |
+| --- | --- | --- |
+| DAG | Definición de tareas y dependencias. | El flujo «generar reporte diario». |
+| Ejecución del DAG (*DAG run*) | Una corrida concreta de ese flujo. | La corrida que prepara las ventas del lunes. |
+| Tarea (*task*) | Una unidad de trabajo del flujo. | Validar las ventas antes de publicarlas. |
+| Instancia de tarea (*task instance*) | Esa tarea dentro de una corrida concreta. | La validación de las ventas del lunes. |
+| Operador (*operator*) | Tipo de trabajo que puede realizar una tarea. | Ejecutar un comando de terminal. |
+| Callback | Acción asociada a un evento de ejecución. | Avisar cuando falla un proceso. |
+
+Los **logs** son registros de lo ocurrido durante la ejecución. La **UI** es la interfaz visual donde se consulta y opera el sistema. Los callbacks complementan el seguimiento; las dependencias siguen definiendo el orden del proceso.
+
+Airflow coordina trabajo que puede realizarse en otros sistemas. Elegirlo como orquestador no implica que sea también el warehouse, el motor de procesamiento distribuido o el dashboard del negocio.
+
+<a id="c7-11"></a>
+### 11. Práctica de orquestación: consigna y recorrido
+
+**Objetivo de ORQ, pp. 1-2:** instalar y explorar Airflow, recrear el DAG del tutorial, distinguirlo del ejemplo incluido y observar ejecuciones y cambios en la interfaz. La instalación guiada es local; Docker es una alternativa con las adecuaciones de su documentación.
+
+#### Paso 1: preparar un entorno coherente
+
+La consigna pide usar **WSL en Windows**. En macOS/Linux se trabaja en la terminal del sistema. La ruta de Windows que también aparece en el PDF no debe interpretarse como obligación de ejecutar Airflow de forma nativa en Windows: bajo WSL se usan rutas del entorno Linux.
+
+Seguir el [inicio rápido oficial](https://airflow.apache.org/docs/apache-airflow/stable/start.html) de la versión elegida: crear y activar un entorno virtual, usar Python compatible e instalar Airflow con el archivo de restricciones de dependencias correspondiente. Los enlaces `stable` cambian; conviene seleccionar una misma versión en la documentación de instalación y tutorial. No mezclar imports o comandos de versiones distintas.
+
+#### Paso 2: comprobar instalación, iniciar y acceder
+
+La secuencia de la consigna, una vez instalado en el entorno correcto, es:
+
+```bash
+airflow version
+airflow standalone
+```
+
+El primer comando permite registrar la versión instalada. El segundo inicia el entorno local. Abrir `http://localhost:8080` y buscar las credenciales según lo indicado por la terminal [ORQ, p. 1]. El archivo `simple_auth_manager_passwords.json.generated` mostrado por el PDF es un ejemplo de ubicación: debe usarse la ruta que informa la instalación propia.
+
+`standalone` está destinado a exploración y desarrollo local. Si se configura `AIRFLOW_HOME`, hay que conservar el mismo valor en las terminales usadas para operar el entorno. Estas precisiones siguen el [inicio rápido oficial](https://airflow.apache.org/docs/apache-airflow/stable/start.html).
+
+#### Paso 3: recrear el tutorial con identidad propia
+
+ORQ indica crear `tutorial.py` a partir del [tutorial oficial](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html). Para no confundirlo con el ejemplo preinstalado, cambiar **tanto el nombre del archivo como el identificador del DAG**, por ejemplo `tutorial_mia203.py` y `tutorial_mia203`.
+
+Guardar el archivo en la carpeta de DAGs de la configuración activa; el PDF propone `~/airflow/dags` en Linux/macOS. Verificar el directorio real del entorno utilizado, especialmente con WSL o Docker. Cambiar solo el nombre del archivo no cambia automáticamente la identidad del DAG.
+
+#### Paso 4: comprender las tareas y dependencias
+
+El tutorial consultado define tareas para mostrar la fecha, esperar y ejecutar un comando con plantilla. Su dependencia `t1 >> [t2, t3]` significa que `t2` y `t3` esperan a `t1`, sin dependencia entre ellas. Incluye programación, reintentos y `catchup=False`. La definición Python describe el flujo; el trabajo se ejecuta después como tareas. Referencia: [tutorial oficial](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+
+El propósito inicial es **entender la coordinación**. Este DAG didáctico no constituye por sí solo un pipeline de datos de negocio completo.
+
+#### Paso 5: observar y documentar una ejecución
+
+La consigna pide verificar que figure el DAG propio y usar la UI para observar tareas y modificaciones. Como guía de estudio, registrar:
+
+| Evidencia a revisar | Qué permite comprobar |
+| --- | --- |
+| Versión y entorno utilizado | Qué documentación corresponde a la instalación. |
+| Archivo e identificador propios | Que se está explorando el DAG creado y no solo el ejemplo. |
+| Grafo de tareas | Que las dependencias reflejan el flujo esperado. |
+| Ejecución identificable | Que existe una corrida concreta, no solo una definición. |
+| Estados y logs por tarea | Qué ejecutó cada tarea y dónde falló, si corresponde. |
+| Cambio y nueva ejecución | Qué efecto tuvo modificar la definición. |
+
+**Ejercicio adicional propuesto:** introducir una falla controlada en una tarea de prueba, observar el estado y los logs, corregirla y comparar la siguiente ejecución. Es una propuesta para aprender, no un requisito adicional atribuido al PDF.
+
+#### Si algo falla, diagnosticar por etapas
+
+| Síntoma | Pregunta útil |
+| --- | --- |
+| No se encuentra `airflow` | ¿Se activó el entorno donde se instaló? |
+| No abre la UI | ¿Sigue activo el proceso y se usa la dirección/puerto del entorno correcto? |
+| No se puede iniciar sesión | ¿Se usan las credenciales indicadas por esa instalación? |
+| No aparece el DAG propio | ¿Está en la carpeta activa, importa correctamente y tiene identidad diferente? |
+| Aparece, pero no hay corrida | ¿Se inició una ejecución o se cumplen las condiciones de programación? |
+| Una tarea falla | ¿Qué error muestra su log y qué dependencia necesita? |
+
+El PDF remite también a inicialización de base y listado de DAGs del tutorial: seguir los pasos correspondientes a la versión elegida, sin copiar comandos antiguos de otra versión. **Estado de este apunte:** guía preparada; instalación, ejecución y resultados reales pendientes de realizar en la práctica.
+
+<a id="c7-12"></a>
+### 12. Cómo se conecta toda la materia
+
+| Clase | Aporte al sistema de datos |
+| --- | --- |
+| 1. Fundamentos | Requisitos, atributos de calidad, mantenibilidad y control de versiones. |
+| 2. Metodologías, Git y Docker | Trabajo en equipo y entornos reproducibles. |
+| 3. DevOps, CI/CD e IA | Cambios revisados, pruebas y entrega automatizada. |
+| 4. Arquitectura | Separación de responsabilidades y contratos entre componentes. |
+| 5. Redes y APIs | Acceso a fuentes y servicios, comunicación y diagnóstico. |
+| 6. Evaluación | Instancia de evaluación; no agrega material teórico recibido. |
+| 7. Datos y orquestación | Transformar fuentes en productos y coordinar sus actualizaciones. |
+
+**CI/CD y orquestación de datos se complementan.** CI/CD comprueba y entrega una nueva versión del código del pipeline; el orquestador coordina las ejecuciones de ese pipeline sobre datos. Comparten automatización, dependencias y logs, pero atienden ciclos de trabajo distintos.
+
+**Ejemplo integrador propio:** se necesita un reporte de ventas actualizado antes del inicio de la jornada. El equipo define fuentes, significado de las métricas y controles de calidad; diseña extracción, transformación, validación y publicación; versiona código y DAG; revisa y prueba cambios mediante CI; prepara el entorno y configura conexiones. Airflow coordina las corridas y permite observar fallas. El consumidor recibe el producto de datos, no solamente una colección de scripts.
+
+<a id="c7-13"></a>
+### 13. Repaso y autoevaluación
+
+| Pregunta o caso | Respuesta razonada |
+| --- | --- |
+| ¿Qué diferencia un producto de datos de un archivo generado una vez? | Usuarios, utilidad continua, documentación, responsabilidad y expectativas de servicio. |
+| ¿Qué se decide primero: la plataforma o la necesidad? | La decisión que se quiere apoyar y sus requisitos; la plataforma se evalúa después. |
+| ¿Más frescura siempre justifica streaming? | No. Depende del plazo para actuar, el costo y la complejidad aceptable. |
+| ¿Un JSON garantiza datos correctos? | No. Su estructura no garantiza validez, completitud ni significado. |
+| ¿OLTP y OLAP describen únicamente tamaños? | No. Describen cargas orientadas a transacciones y a análisis. |
+| ¿Un lake reemplaza automáticamente al warehouse? | No. Pueden coexistir y resolver necesidades distintas. |
+| ¿En qué se diferencian ETL y ELT? | En si se transforma antes o después de cargar al destino considerado. |
+| ¿Por qué un DAG diario no tiene un ciclo? | El grafo es acíclico; se crean ejecuciones sucesivas de esa definición. |
+| Una carga anexó filas y falló antes de registrar éxito. ¿Qué riesgo tiene reintentar? | Duplicar filas; se necesita una estrategia de idempotencia. |
+| Todas las tareas están en éxito, pero faltan ventas. ¿El producto está bien? | No necesariamente: faltan controles de calidad o completitud. |
+| Renombré `tutorial.py`, pero veo el mismo DAG. ¿Qué revisar? | El identificador interno del DAG y el directorio donde se guardó. |
+| ¿Airflow reemplaza GitHub Actions? | No en general: uno coordina corridas de trabajo y el otro puede comprobar y entregar sus cambios de código. |
+
+**Precisiones y alcance:** se revisó el texto de ambos PDFs y las figuras de las páginas 7-12, 25, 30-35 y 42-44 de DAT. Las comparaciones y los ejemplos propios desarrollan el material sin convertir sus cifras ilustrativas o diagramas comerciales en reglas universales. Las referencias oficiales de Airflow se consultaron el 07/11/2026; sus enlaces `stable` pueden variar. No se instalaron servicios ni se ejecutaron instrucciones de los PDFs como parte de la actualización del resumen.
+
+[Volver al índice](#indice) · [Repaso rápido de la clase 7](FastResumen.md#clase-7)
